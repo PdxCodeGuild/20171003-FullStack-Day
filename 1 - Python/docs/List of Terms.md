@@ -1,0 +1,68 @@
+## List of Terms in Python
+- argument
+    - snyonymous with 'parameter', the values passed into a function
+- boolean
+	- True or False, the result of == != < <= > >=
+- class
+    - a way to define a type, a 'class of objects'
+- comment
+	- a way of writing text in code that's ignored by the interpreter
+	- e.g. `# this is a comment`
+- comparison
+    - == != < <= > >=
+- conditional
+    - if, elif
+- declaration
+    - to 'declare' a value, to say that it exists (often with a given value, e.g. `x = 5`)
+- dunder
+	- double underscore '__'
+- element
+    - an element of a list
+    - e.g. in `[1, 2, 3]` `1` is the 'first element'
+- escape sequence
+    - a way to specify special characters in a string literal
+    - e.g. `\n` is a newline, `\t` is a tab, `\'` is a single-quote, `\"` is a double-quote, `\\` is a backslash.
+- exception
+    - a way in python to indicate that an error occurred, e.g. accessing an element of a list beyond its end, trying to divide by zero
+- expression
+    - a section of code that evaluates to a value
+- float
+	- a floating point number, e.g. 5.6
+- function
+    - an isolated section of code that's supposed to perform a specific operation
+- index
+    - an integer representing the position of an element in a list, or a character in a string
+- instance
+    - as opposed to 'type', an actual object, not just a 'blueprint'
+- int
+	- an integer, e.g. 5, 12, -231
+- iteration
+	- repeating a block of code by looping
+- list
+	- an ordered collection of elements, denoted by []
+	- `nums = [5, 6, 7]`
+	- `names = ['jack', 'jill', 'jane']`
+- literal
+	- a value put directly into source code
+- loop
+    - repeatly executing a section of code
+    - `for` and `while` are the kinds of loops in python
+- method
+    - a special type of function, associated with the instance of a type
+    - e.g. `'hello world'.split(' ')`
+- module
+    - an organization unit in Python, a `.py` file represents a module
+- modulus ('mod')
+	- the 'remainder function' e.g. 5%3=2
+	- it's useful for wrapping past the end of an array, or confining an int to a range
+- parameter
+    - snyonymous with 'argument', the values passed into a function
+- statement
+    -  a section of code that performs a complete operation
+- type
+    - synonymous with 'class', general characteristics shared among different instances
+    - e.g. string, int, float, list
+    - you can access an object's type with `type(o)`, e.g. `print(type(5))` will print `int`
+- variable
+	- e.g. algebra, a name that stands for a value 
+    - the name can be made with letters, numbers, and underscores, it just can't start with a number
