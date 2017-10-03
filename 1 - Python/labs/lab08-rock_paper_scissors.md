@@ -16,5 +16,3 @@ Let's list all the cases:
 - scissors vs rock
 - scissors vs paper
 - scissors vs scissors
-
-[//]: # (instructor note: write the tie case, the first case, have them write the others using elif)
