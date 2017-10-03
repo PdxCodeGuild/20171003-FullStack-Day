@@ -1,12 +1,6 @@
-# Lab 4: Magic 8-Ball
+# Lab 5: Magic 8-Ball
 
 Let's write a program to simulate the classic "[Magic Eight Ball](https://en.wikipedia.org/wiki/Magic_8-Ball)"
-
-## Concepts Covered
-
-- input, print
-- import
-- random.choice
 
 ## Instructions
 
@@ -14,7 +8,6 @@ Let's write a program to simulate the classic "[Magic Eight Ball](https://en.wik
 2. Use the random module's `random.choice()` to choose a prediction.
 3. Prompt the user to ask the 8-ball a question "will I win the lottery tomorrow?"
 5. Display the result of the 8-ball.
-
 
 Below are some example 'predictions':
 
@@ -43,3 +36,10 @@ Below are some example 'predictions':
 ## Version 2
 
 Using a `while` loop, keep asking the user for a question, if they enter 'done', exit
+
+
+## Concepts Covered
+
+- input, print
+- import
+- random.choice
