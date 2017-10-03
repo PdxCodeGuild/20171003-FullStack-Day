@@ -14,14 +14,15 @@ PDX Code Guild doesn't hold class sessions on the following holidays. Holidays d
 
 #### Dates we have off during this course:
 
-
+- 10/9 Indigenous Peoples Day
+- 11/22 - 11/27 Thankgiving
+- 12/24 - 12/25 Christmas
 
 #### Holidays we ordinarily have off
 
 
 * Independence Day
 * Labor Day
-* Columbus Day
 * Veterans Day
 * Thanksgiving Weekend
 * Christmas Weekend

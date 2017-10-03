@@ -2,8 +2,6 @@
 # Learning Objectives
 
 
-
-
 1. Python
 	- Learn how to read, write, test, and debug Python 3
 	- Language basics (data types, data structures, functions)
@@ -52,7 +50,7 @@
     - Find balance between independently answering questions and asking for help
     - Clearly communicate with technical and non-technical partners
 
-
+## (Rough) Timeline
 **Weeks 1, 2, 3, 4:** Python
 
 **Week 5:** HTML/CSS
