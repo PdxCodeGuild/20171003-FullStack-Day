@@ -1,7 +1,7 @@
 
 # Lab 6: Random Emoticon Generator
 
-Let's generate emoticons by assembling a randomly choosing a set of eyes, a nose, and a mouth.
+Let's generate emoticons by assembling a randomly choosing a set of eyes, a nose, and a mouth. Examples of emoticons are :-D =^P and :\
 
 1. Define a list of eyes
 2. Define a list of noses
