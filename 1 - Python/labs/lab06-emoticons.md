@@ -20,6 +20,11 @@ fruit = random.choice(fruits)
 print(fruit)
 ```
 
+Example output:
+```
+:-P
+```
+
 ## Version 2
 
 Use a `while` loop to generate 5 emoticons.
