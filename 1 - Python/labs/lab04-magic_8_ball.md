@@ -1,4 +1,4 @@
-# Lab 6: Magic 8-Ball
+# Lab 4: Magic 8-Ball
 
 Let's write a program to simulate the classic "[Magic Eight Ball](https://en.wikipedia.org/wiki/Magic_8-Ball)"
 
