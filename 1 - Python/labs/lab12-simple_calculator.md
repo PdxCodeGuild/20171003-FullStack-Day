@@ -1,5 +1,5 @@
 
-# Lab 11: Simple Calculator
+# Lab 12: Simple Calculator
 
 Write a program that asks the user for an operator and each operand. Don't forget that `input` returns a `string`, which you can convert to a float using `float(user_input)` where `user_input` is the string you got from `input`. Below is some sample input/output.
 
