@@ -2,7 +2,7 @@
 
 ## Explanation
 
-Turtle is a python `module` that allows us to move a virtual turtle around the screen using programming statements. This turtle has a position and a heading.
+Turtle is a python `module` that allows us to move a virtual turtle around the screen using programming statements. This turtle has a position and a heading. Below are a list of commands, you can more in the [turtle docs](https://docs.python.org/3.6/library/turtle.html).
 
 - `forward(distance)` moves the turtle forward the given number of pixels 
 - `left(angle)` and `right(angle)` turns the turtle left or right by the given angle (in degrees)
@@ -13,7 +13,7 @@ Turtle is a python `module` that allows us to move a virtual turtle around the s
 
 - `fillcolor(color_name)` sets the fill color, `begin_fill()` indicates you'd like to begin filling in whatever you draw, `end_fill()` actually fills the shape in.
 
-You can find more commands at https://docs.python.org/3.6/library/turtle.html
+Use these functions to draw a stick figure with a head, body, two arms, and two legs. Once you're done, go through the examples below and create your own drawing.
 
 ## Examples
 
