@@ -11,14 +11,7 @@ Return the number of letter occourances in a string.
 2
 ```
 
-### Problem 2
-Return the letter that appears last in the engligh alphabet.
-```
->>> latest_letter('pneumonoultramicroscopicsilicovolcanoconiosis')
-the latest letter is v.
-```
-
-## Problem 3
+## Problem 2
 
 Convert input strings to lowercase without any surrounding whitespace.
 
@@ -30,7 +23,7 @@ Convert input strings to lowercase without any surrounding whitespace.
 ```
 
 
-### Problem 4
+### Problem 3
 
 Write a function that tells whether a number is even or odd (hint, compare a/2 and a//2, or use a%2)
 
@@ -42,7 +35,7 @@ Write a function that tells whether a number is even or odd (hint, compare a/2 a
 `is_even(6)` will return True
 
 
-### Problem 5
+### Problem 4
 
 Write a function using random.randint and subscription to get a random element of a list and return it.
 
@@ -53,7 +46,7 @@ fruits = ['apples', 'bananas', 'pears']
 random_element(fruits) could return 'apples', 'bananas' or 'pears'
 ```
 
-### Problem 6
+### Problem 5
 
 Write a function that returns the maximum of 3 parameters.
 
@@ -63,13 +56,13 @@ Write a function that returns the maximum of 3 parameters.
 
 `maximum_of_three(-4,3,10) will return 10`
 
-### Problem 7
+### Problem 6
 
 print out the powers of 2 from 2^0 to 2^20
 
 `1, 2, 4, 8, 16, 32, ...`
 
-### Problem 8
+### Problem 7
 Write functions to find the minimum, maximum, mean, and mode of a list of numbers.
 
 `def minimum(nums):`
@@ -81,22 +74,22 @@ Write functions to find the minimum, maximum, mean, and mode of a list of number
 `def mode(nums):`
 
 
-### Problem 9
+### Problem 8
 Write a function that returns the reverse of a list.
 
 `def reverse(nums):`
 
-### Problem 10
+### Problem 9
 Write a function to find all common elements between two lists.
 
 `def common_elements(nums1, nums2):`
 
-### Problem 11
+### Problem 10
 Write a function to move all the elements of a list with value less than 10 to a new list and return it.
 
 `def extract_less_than_ten(nums):`
 
-### Problem 12
+### Problem 11
 Write a function to combine two lists of equal length into one, alternating elements.
 
 `def combine(nums1, nums2):`
