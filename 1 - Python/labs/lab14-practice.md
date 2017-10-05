@@ -63,7 +63,7 @@ print out the powers of 2 from 2^0 to 2^20
 `1, 2, 4, 8, 16, 32, ...`
 
 ### Problem 7
-Write functions to find the minimum, maximum, mean, and mode of a list of numbers.
+Write functions to find the minimum, maximum, mean, and (optionally) mode of a list of numbers.
 
 `def minimum(nums):`
 
@@ -71,6 +71,7 @@ Write functions to find the minimum, maximum, mean, and mode of a list of number
 
 `def mean(nums):`
 
+(OPTIONAL)
 `def mode(nums):`
 
 
