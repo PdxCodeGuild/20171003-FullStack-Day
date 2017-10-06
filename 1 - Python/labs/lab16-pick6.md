@@ -14,6 +14,18 @@ A ticket contains 6 numbers, 1 to 99, and the number of matches between the tick
 - if 5 numbers match, you win #1,000,000
 - if 6 numbers match, you win #25,000,000
 
+
+## Steps
+
+1. Generate a list of 6 random numbers representing the winning tickets
+2. Start your balance at 0
+2. Loop 1000 times, for each loop:
+3. Generate a list of 6 random numbers representing the ticket
+4. Subtract 2 from your balance (you bought a ticket)
+5. Find how many numbers match 
+6. Add to your balance the winnings from your matches
+7. After the loop, print the final balance
+
 ## Version 2
 
 The ROI (return on investment) is defined as `(earnings - expenses)/expenses`. Calculate your ROI, print it out along with your earnings and expenses.
