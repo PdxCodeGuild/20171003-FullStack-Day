@@ -4,7 +4,7 @@
 
 The 12 week course is 60 days long, weekdays 9:30 AM to 4:30 PM, with an hour for lunch. The 16 week course is 80 days, weekdays 6 PM to 9:30 PM.
 
-We'll take 10 minute breaks every hour.
+We'll take 10 minute breaks every hour-and-a-half.
 
 
 ## Holidays
