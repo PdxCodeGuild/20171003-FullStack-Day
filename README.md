@@ -1,5 +1,6 @@
 # 20171003 Full-Stack Day Class
 
+Class Reps: https://github.com/PdxCodeGuild/20171003-FullStack-Day
 
 ## Introductions
 
@@ -12,13 +13,13 @@
   - https://github.com/ziadawn/codeguild-class
 - Allen Matasy
   - [allen.matasy@gmail.com](mailto:allen.matasy@gmail.com)
-  - https://github.com/Spitfire22/PdxCodeGuild/tree/master/Python
+  - https://github.com/Spitfire22/PdxCodeGuild
 - David Pennington
   - [unseenoctopus@gmail.com](mailto:unseenoctopus@gmail.com)
   - https://github.com/mootfowl/dp_pdxcodeguild
 - Marcel Schaeffer
   - [mschaeffer53@gmail.com](mailto:mschaeffer53@gmail.com)
-  - https://github.com/mschaeffer53/Marcel_repo/tree/master/python
+  - https://github.com/mschaeffer53/Marcel_repo
 - Cameron Mirza
   - [mail@cmirza.com](mailto:mail@cmirza.com)
   - https://github.com/cmirza/FullStackDay-PdxCodeGuild
@@ -26,6 +27,7 @@
   - [tntterri615@gmail.com](mailto:tntterri615@gmail.com)
 - Chloe Elliott
   - [chloe_elliott@me.com](mailto:chloe_elliott@me.com)
+  - https://github.com/PDXChloe/PDXcodeguild
 - Brandon Perard
   - [brandon.perard@gmail.com](mailto:brandon.perard@gmail.com)
   - https://github.com/trashpig/pcg
