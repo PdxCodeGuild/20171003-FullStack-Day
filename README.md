@@ -3,10 +3,36 @@
 
 ## Introductions
 
-- Matthew Cooper [matthew@pdxcodeguild.com](mailto:matthew@pdxcodeguild.com)
-- Nicholas Riehl [riehlnm@gmail.com](mailto:riehlnm@gmail.com)
-- Cynthia Prevatte [cynthiaprevatte@gmail.com](mailto:cynthiaprevatte@gmail.com)
-- Zack Kollar [zack@pdxcodeguild.com](mailto:zack@pdxcodeguild.com)
+- Matthew Cooper
+  - [matthew@pdxcodeguild.com](mailto:matthew@pdxcodeguild.com)
+- Nicholas Riehl
+  - [riehlnm@gmail.com](mailto:riehlnm@gmail.com)
+- Zia Dawn
+  - [zmareck@gmail.com](mailto:zmareck@gmail.com)
+  - https://github.com/ziadawn/codeguild-class
+- Allen Matasy
+  - [allen.matasy@gmail.com](mailto:allen.matasy@gmail.com)
+  - https://github.com/Spitfire22/PdxCodeGuild/tree/master/Python
+- David Pennington
+  - [unseenoctopus@gmail.com](mailto:unseenoctopus@gmail.com)
+  - https://github.com/mootfowl/dp_pdxcodeguild
+- Marcel Schaeffer
+  - [mschaeffer53@gmail.com](mailto:mschaeffer53@gmail.com)
+  - https://github.com/mschaeffer53/Marcel_repo/tree/master/python
+- Cameron Mirza
+  - [mail@cmirza.com](mailto:mail@cmirza.com)
+  - https://github.com/cmirza/FullStackDay-PdxCodeGuild
+- Terri Stefan
+  - [tntterri615@gmail.com](mailto:tntterri615@gmail.com)
+- Chloe Elliott
+  - [chloe_elliott@me.com](mailto:chloe_elliott@me.com)
+- Brandon Perard
+  - [brandon.perard@gmail.com](mailto:brandon.perard@gmail.com)
+  - https://github.com/trashpig/pcg
+- Kyle Douglas
+  - [kyle.dgls@gmail.com](mailto:kyle.dgls@gmail.com)
+
+
 
 #### Questions
 
