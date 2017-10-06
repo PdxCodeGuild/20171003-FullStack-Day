@@ -25,6 +25,7 @@ Class Reps: https://github.com/PdxCodeGuild/20171003-FullStack-Day
   - https://github.com/cmirza/FullStackDay-PdxCodeGuild
 - Terri Stefan
   - [tntterri615@gmail.com](mailto:tntterri615@gmail.com)
+  - https://github.com/tntterri615/Pdx-Code-Guild/tree/master/Python
 - Chloe Elliott
   - [chloe_elliott@me.com](mailto:chloe_elliott@me.com)
   - https://github.com/PDXChloe/PDXcodeguild
