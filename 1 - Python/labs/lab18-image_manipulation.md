@@ -52,7 +52,7 @@ b = int(b*255)
 
 Pillow can also be used to draw, the code below demonstrates some functions that Pillow provides. Use these functions to draw a stick figure. You can find more documentation [here](http://pillow.readthedocs.io/en/4.2.x/reference/ImageDraw.html).
 
-```
+```python
 from PIL import Image, ImageDraw
 
 width = 500
@@ -87,7 +87,7 @@ img.show()
 
 Try running the code below, which generates 1000 random lines with random colors.
 
-```
+```python
 
 from PIL import Image, ImageDraw
 from random import randint
