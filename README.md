@@ -1,7 +1,5 @@
 # 20171003 Full-Stack Day Class
 
-Class Reps: https://github.com/PdxCodeGuild/20171003-FullStack-Day
-
 ## Introductions
 
 - Matthew Cooper
