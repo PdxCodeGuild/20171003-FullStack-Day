@@ -6,9 +6,8 @@ Write a simple program that prompts the user for several inputs then
 ## Instructions
 
 1. Search the interwebs for an example Mad Lib
-2. Create a new file and save it as `madlib.py`
-3. Ask the user for each word you'll put in your Mad Lib
-4. Use `string concatenation` to put each word into the Mad Lib
+2. Ask the user for each word you'll put in your Mad Lib
+3. Use `string concatenation` to put each word into the Mad Lib
 
 ## Example:
 

@@ -8,7 +8,7 @@ Let's convert an [image](https://upload.wikimedia.org/wikipedia/en/2/24/Lenna.pn
 
 ```python
 from PIL import Image
-img = Image.open("lenna.png")
+img = Image.open("lenna.png") # must be in same folder
 width, height = img.size
 pixels = img.load()
 
@@ -28,7 +28,7 @@ img.show()
 
 ## Version 2
 
-Use the `colorsys` library to increase the saturation, decrease the saturation, and rotate the hue. Colorsys represents colors as floats in the range 0.0 - 1.0.
+Use the `colorsys` library to increase the saturation, decrease the saturation, and rotate the hue. If you don't have colorsys installed, run `pip install colorsys` in a terminal. Colorsys represents colors as floats in the range 0.0 - 1.0, whereas pillow uses ints in the range 0 - 255. You'll have to convert between these two representations.
 
 ```python
 import colorsys
@@ -45,10 +45,9 @@ r, g, b = colorsys.hsv_to_rgb(h, s, v)
 r = int(r*255)
 g = int(g*255)
 b = int(b*255)
-
 ```
-## Version 3
 
+## Version 3
 
 Pillow can also be used to draw, the code below demonstrates some functions that Pillow provides. Use these functions to draw a stick figure. You can find more documentation [here](http://pillow.readthedocs.io/en/4.2.x/reference/ImageDraw.html).
 
@@ -96,9 +95,7 @@ width = 500
 height = 500
 
 img = Image.new('RGB', (width, height))
-
 draw = ImageDraw.Draw(img)
-
 
 for i in range(1000):
     x0 = randint(0, width)
@@ -110,7 +107,6 @@ for i in range(1000):
     green = randint(0, 255)
     blue = randint(0, 255)
     draw.line((x0, y0, x1, y1), fill=(red, green, blue), width=line_width)
-
 
 img.show()
 ```

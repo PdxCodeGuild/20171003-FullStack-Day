@@ -16,3 +16,7 @@ Hint2: use the digit as an index to look up a string in a list.
 ## Version 2
 
 Handle numbers from 100-999.
+
+## Version 3 (optional)
+
+Convert a number to roman numerals.

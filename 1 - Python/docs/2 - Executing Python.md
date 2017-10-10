@@ -1,6 +1,15 @@
 
-
 # Running Python via the CLI
+
+## Common Python Commands
+
+You can find more info in the [official docs](https://docs.python.org/3/using/cmdline.html).
+
+
+- `python` start the interactive interpreter
+- `python <file>` execute the python source code in the given file
+- `python --help` print out all command-line options
+- `python --version` show which version of python you're using
 
 ## Using the Python Interactive Interpreter
 
