@@ -1,5 +1,5 @@
 """
-lab 22: convert a number between 0 and 99 to a phrase
+lab 17: convert a number between 0 and 99 to a phrase
 # e.g. 5 -> 'five'
 # e.g. 11 -> 'eleven'
 # e.g. 56 -> 'fifty-six'
