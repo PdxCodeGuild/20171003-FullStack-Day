@@ -1,9 +1,6 @@
 # Lab 22: Practice Problems 2
 
 
-
-
-
 ## Problem 1
 
 Write a REPL which asks users for a list of numbers, which they enter, until they say 'done'. Then print out the list.
