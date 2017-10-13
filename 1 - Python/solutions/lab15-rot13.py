@@ -11,7 +11,7 @@ lab 15: rot 13
 
 def rot13(text):
 
-    alphabet = 'abcdefghijklmnopqrstuvwxyz'
+    alphabet         = 'abcdefghijklmnopqrstuvwxyz'
     alphabet_rotated = 'nopqrstuvwxyzabcdefghijklm'
 
     output = ''
@@ -27,8 +27,12 @@ def rotn(text, n):
     for char in text:
         index = alphabet.find(char)
         index += n
-        if index >= len(alphabet):
+
+        while index >= len(alphabet):
             index -= len(alphabet)
+
+        #if index >= len(alphabet):
+        #    index -= len(alphabet)
         output += alphabet[index]
     return output
 
