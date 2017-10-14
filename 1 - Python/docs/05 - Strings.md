@@ -41,6 +41,49 @@ Remember that strings are **immutable** meaning their values cannot be changed. 
 - `split()` splits a string into a list
 - `join()` combines the elemnts of a list into a string
 
+None of these functions edit the original string, because strings are immutible. If they return strings, they return **copies**. Sometimes people new to programming will make a mistake such as...
+
+```python
+s = ' Hello! '
+s.lower()
+s.strip()
+print(s) # ' Hello! ', original value is unchanged
+```
+
+
+
+
+### Formatting
+
+Often string concatenation with large strings or many variables becomes overwhelming. You can see some examples [here](https://pyformat.info/).
+
+**c-style formatting**
+```python
+'%s %s' % ('one', 'two')
+'%d %d' % (1, 2)
+
+mylist = [1,2,3]
+print("A list: %s" % mylist)
+```
+
+
+
+```python
+'{} {}'.format('one', 'two')
+'{} {}'.format(1, 2)
+```
+
+**f-strings** are prefixed with an `f`, one can then use curly braces `{}` and write variable names.
+
+
+```python
+>>> a = 'one'
+>>> b = 2
+>>> print(f'a is {a} and b is {2}')
+a is one and b is two
+```
+
+
 
 
 
