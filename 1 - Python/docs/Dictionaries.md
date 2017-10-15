@@ -32,6 +32,15 @@ product_to_price['banana'] = 0.25
 product_to_price  #> {'apple': 1.0, 'pear': 1.5, 'banana': 0.25, 'grapes': 0.75}
 ```
 
+To check if a list contains a key, use `in`
+
+```python
+product_to_price = {'apple': 1.0, 'pear': 1.5, 'grapes': 0.75}
+if 'apple' in product_to_price:
+    print('apple ' + str(product_to_price['apple']))
+'apple 1.0'
+```
+
 To combine two dictionaries, use the `.update()` type method. Note that it changes the given dict and does not return a new one.
 
 ```python
