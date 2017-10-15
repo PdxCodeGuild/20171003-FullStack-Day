@@ -30,7 +30,12 @@ Functions are isolated pieces of code that take input, perform some operation, a
 
 ## Parameters and Return-Values
 
-Parameters are the values passed to a function, enclosed inside the parantheses. Some functions take no parameters, some like `min` and `print` take an arbitrary number of parameters.
+Parameters are the values passed to a function, enclosed inside the parantheses. Some functions take no parameters, some like `min` and `print` take an arbitrary number of parameters. Functions may also take **named parameters**. For example, the `print` function can take a named parameter `end`. When not specified, `end` will default to `\n`. This is useful if you want to print multiple things on the same line.
+
+```python
+print('hello ', end='')
+print('there')
+```
 
 Functions may or may not return anything. If they don't return anything, any variables they're assigned to will be `None`.
 

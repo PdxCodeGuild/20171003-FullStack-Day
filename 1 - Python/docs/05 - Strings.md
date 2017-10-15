@@ -22,35 +22,32 @@ Escape sequences allow us to define special characters within strings.
 - `\xhhhh` represents a unicode character with id 'hhhh', e.g. `\u0394`
 
 
-### String Operations
-
-Remember that strings are **immutable** meaning their values cannot be changed. Each of these operations returns a **new** string.
+## String Operations
 
 - `+`, `+=` concatenation
 - `*`, `*=` repeat a string
-- `[i]` get the character at index i
-- `[a:b]` get the sub-string from a to b
-- `[a:b:c]` get every `c`th character from a to b
-- `find()` returns the index of a the first occurance of a string
-- `upper()` convert to upper case
-- `lower()` convert to lower case
-- `startswith()` returns true if the string starts with the given string
-- `endswith()` returns true if the string ends with the given string
-- `replace()` replaces one string with another
-- `strip()` moves leading and trailing characters
-- `split()` splits a string into a list
-- `join()` combines the elemnts of a list into a string
+- `len(s)` get the length of a string
+- `s[i]` get the character at index i
+- `s[i:j]` get the sub-string from `i` to `j`
+- `s[i:j:k]` get every `k`th character from `i` to `j`
+- `s.find(a)` returns the index of a the first occurance of `a`
+- `s.upper()` convert to upper case
+- `s.lower()` convert to lower case
+- `s.startswith(a)` returns true if the string starts with `a`
+- `s.endswith(a)` returns true if the string ends with `a`
+- `s.replace(a, b)` replaces occurances of string `a` with string `b`
+- `s.strip()` moves leading and trailing characters
+- `s.split(delimeter)` splits a string into a list
+- `delimeter.join(list)` combines the elements of a list into a single string, separated by the delimeter
 
-None of these functions edit the original string, because strings are immutible. If they return strings, they return **copies**. Sometimes people new to programming will make a mistake such as...
+Remember that strings are **immutable** meaning their values cannot be changed. Each of these operations returns a **new** string. Sometimes people new to programming will make a mistake such as...
 
 ```python
 s = ' Hello! '
 s.lower()
 s.strip()
-print(s) # ' Hello! ', original value is unchanged
+print(s) # ' Hello! ' original value is unchanged
 ```
-
-
 
 
 ### Formatting
@@ -66,7 +63,7 @@ mylist = [1,2,3]
 print("A list: %s" % mylist)
 ```
 
-
+You can also format strings with the `format` function.
 
 ```python
 '{} {}'.format('one', 'two')
