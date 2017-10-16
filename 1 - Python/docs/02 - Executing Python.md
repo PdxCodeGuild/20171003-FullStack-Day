@@ -45,3 +45,8 @@ print(x)
 ```
 
 Execute this file by opening a terminal, and type `python temp.py`. You should see `8` as the output. Every time you edit the source file, you then run it by typing `python filename` again.
+
+
+### Passing Command-Line Arguments
+
+

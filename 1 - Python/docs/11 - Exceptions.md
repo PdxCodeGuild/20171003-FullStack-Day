@@ -1,6 +1,6 @@
 # Exception Handling
 
-Exceptions are 'thrown' by Python when it can't interpret what your program is trying to do. You can read more about exeption handling in the official [Python documentation](https://docs.python.org/3/tutorial/errors.html).
+Exceptions are 'thrown' by Python when it can't interpret what your program is trying to do. You can read more about exeptions in the [official docs](https://docs.python.org/3.6/tutorial/errors.html).
 
 For example, the following occurs when we attempt to concatenate a string an an int (e.g. `print('your age is: ' + 23)`)
 
@@ -56,4 +56,11 @@ try:
     # some stuff
 except: # catch anything!
     # handle error
+```
+
+
+If you want to catch multiple exceptions, use a tuple.
+
+```python
+
 ```
