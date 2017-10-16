@@ -40,7 +40,7 @@ Escape sequences allow us to define special characters within strings.
 - `s.split(delimeter)` splits a string into a list
 - `delimeter.join(list)` combines the elements of a list into a single string, separated by the delimeter
 
-Remember that strings are **immutable** meaning their values cannot be changed. Each of these operations returns a **new** string. Sometimes people new to programming will make a mistake such as...
+Remember that strings are **immutable** meaning their values cannot be changed. Each of these operations returns a **new** string. You can find some reasons why strings are immutable [here](https://stackoverflow.com/questions/22397861/why-is-string-immutable-in-java). Sometimes people new to programming will make a mistake such as...
 
 ```python
 s = ' Hello! '
