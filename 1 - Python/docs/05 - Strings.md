@@ -30,6 +30,9 @@ s = r'this is a raw string \n\t\\'
 print(s) # this is a raw string \n\t\\
 ```
 
+## Character Codes
+
+There are two built-in functions for switching back and forth between ASCII character codes: `chr` and `ord`. You can find more information about these in the official docs for [chr](https://docs.python.org/3.6/library/functions.html#chr) and [ord](https://docs.python.org/3.6/library/functions.html#ord). You can view the ASCII table [here](https://en.wikipedia.org/wiki/ASCII#Character_set)
 
 ## String Operations
 

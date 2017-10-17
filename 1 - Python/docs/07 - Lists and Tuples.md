@@ -20,6 +20,14 @@ if 'apples' in fruits:
     print('true!')
 ```
 
+We can use `==` and `!=` with lists.
+
+```python
+fruits1 = ['apples', 'bananas']
+fruits2 = ['pears', 'cherries']
+print(fruits1 == fruits2) # False
+print(fruits1 != fruits2) # True
+```
 
 ### List Operations
 
