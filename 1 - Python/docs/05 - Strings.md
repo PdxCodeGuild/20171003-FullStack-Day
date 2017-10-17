@@ -21,6 +21,15 @@ Escape sequences allow us to define special characters within strings.
 - `\\` represents a backslash
 - `\xhhhh` represents a unicode character with id 'hhhh', e.g. `\u0394`
 
+### Raw Strings
+
+Prefixing a string with 'r' will ignore any escape sequences and interpret the string **literally**.
+
+```python
+s = r'this is a raw string \n\t\\'
+print(s) # this is a raw string \n\t\\
+```
+
 
 ## String Operations
 
@@ -36,16 +45,16 @@ Escape sequences allow us to define special characters within strings.
 - `s.startswith(a)` returns true if the string starts with `a`
 - `s.endswith(a)` returns true if the string ends with `a`
 - `s.replace(a, b)` replaces occurances of string `a` with string `b`
-- `s.strip()` moves leading and trailing characters
-- `s.split(delimeter)` splits a string into a list
+- `s.strip()`removes leading and trailing characters, if given no parameter, it'll strip whitespace
+- `s.split(delimeter)` splits a string into a list, if no parameter is given, it'll split on whitespace
 - `delimeter.join(list)` combines the elements of a list into a single string, separated by the delimeter
 
 Remember that strings are **immutable** meaning their values cannot be changed. Each of these operations returns a **new** string. You can find some reasons why strings are immutable [here](https://stackoverflow.com/questions/22397861/why-is-string-immutable-in-java). Sometimes people new to programming will make a mistake such as...
 
 ```python
 s = ' Hello! '
-s.lower()
-s.strip()
+s.lower() # this returns a new string, use s = s.lower()
+s.strip() # this returns a new string, use s = s.strip()
 print(s) # ' Hello! ' original value is unchanged
 ```
 
