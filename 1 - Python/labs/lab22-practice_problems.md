@@ -35,12 +35,10 @@ Given a list of numbers, and a target number, find a pair of numbers from the li
 ```
 nums = [5, 6, 2, 3]
 target = 7
-find_pair(nums, target)
-```
-```
-[5, 2]
+find_pair(nums, target) # [5, 2]
 ```
 
+Optional: return a list of all pairs of numbers that sum to a target value.
 
 
 ## Problem 4
