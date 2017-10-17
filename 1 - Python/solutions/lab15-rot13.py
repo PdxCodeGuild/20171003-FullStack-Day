@@ -55,3 +55,24 @@ def rotn_v2(text, n):
     return output
 
 print(rotn_v2('hello world!', 13))
+
+
+def rotn_v3(text, offset):
+    output = ''
+    for char in text:
+        index = ord(char)
+        if ord('a') <= index <= ord('z'):
+            index -= ord('a')
+            index += offset
+            index %= ord('z') - ord('a') + 1
+            output += chr(ord('a')+index)
+        elif ord('A') <= index <= ord('Z'):
+            index -= ord('A')
+            index += offset
+            index %= ord('Z') - ord('A') + 1
+            output += chr(ord('A') + index)
+        else:
+            output += char
+
+    print(output)
+
