@@ -134,18 +134,6 @@ if condition:
 return b
 ```
 
-## Retursion
-
-Functions can call other functions, producing a chain of invocation. Functions can even call themselves, this is called **recursion**. It's important to have a 'stop condition', otherwise this results in infinite recursion and you'll get a 'stack overflow'.
-
-```python
-def factioral(n):
-    if n == 0:
-        return 1
-    return n*factorial(n-1)
-```
-
-
 ### Returning Multiple Values
 
 You can return multiple values using **automatic tuple packing and unpacking**.
@@ -162,3 +150,16 @@ print(height)
 >>> 500
 >>> 200
 ```
+
+## Recursion
+
+Functions can call other functions, producing a chain of invocation. Functions can even call themselves, this is called **recursion**. It's important to have a 'stop condition', otherwise this results in infinite recursion and you'll get a 'stack overflow'.
+
+```python
+def factioral(n):
+    if n == 0:
+        return 1
+    return n*factorial(n-1)
+```
+
+
