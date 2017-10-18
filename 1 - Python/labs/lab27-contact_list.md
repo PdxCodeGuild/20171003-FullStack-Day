@@ -2,23 +2,21 @@
 # Lab: Contact List
 
 
-Let's build a program to manage a list of contacts. To start, we'll build a CSV ('comma separated values') together, and go over how to load that file. Headers might consist of `name`, `favorite fruit`, `favorite color`. Open the CSV, convert the lines of text into a list of dictionaries, one dictionary for each user.
-
+Let's build a program to manage a list of contacts. To start, we'll build a CSV ('comma separated values') together, and go over how to load that file. Headers might consist of `name`, `favorite fruit`, `favorite color`. Open the CSV, convert the lines of text into a **list of dictionaries**, one dictionary for each user. The text in the header represents the **keys**, the text in the other lines represent the **values**.
 
 ```python
 with open('contacts.csv', 'r') as file:
-    text = file.read()
-    print(text.split('\n'))
+    lines = file.read().split('\n')
+    print(lines)
 ```
 
-The result will loop something like this:
+Once you've processed the file, your list of contacts will look something like this...
 ```python
 contacts = [
     {'name':'matthew', 'favorite fruit':'blackberries', 'favorite color':'orange'},
     {'name':'sam', 'favorite fruit':'pineapple' ...}
 ]
 ```
-
 
 ## Version 2
 
@@ -33,7 +31,7 @@ Implement a CRUD REPL
 
 When REPL loop finishes, write the updated contact info to the CSV file to be saved.
 
-## Version 4
+## Version 4 (optional)
 
 Add a `phone number` column to the CSV, with each contact's phone number. We'll use the Twilio API to send SMS messages from the terminal.
 
