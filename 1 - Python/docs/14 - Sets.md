@@ -53,9 +53,6 @@ True
 
 Check out the [standard library docs for sets](https://docs.python.org/3/library/stdtypes.html#set-types-set-frozenset) for an overview of all the things you can do.
 
-## Comprehensions
-
-Set comprehensions look like list comprehensions, but with curly braces.
 
 ```python
 >>> even_nums = {x * 2 for x in range(4)}
