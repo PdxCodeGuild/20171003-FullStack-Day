@@ -66,7 +66,7 @@ print(distance(p1, p2))
 
 ## Methods
 
-Classes allow us to write 'methods' or 'member-functions', which are functions that are called 'on the object'.
+Classes allow us to write 'methods' or 'member-functions', which are functions that are called 'on the object'. These are exactly like regular functions, except that the first parameter is always 'self'.
 
 ```python
 import math
@@ -122,6 +122,8 @@ print(polar_point)
 
 ## Dunder Methods
 
+A class can implement several 'dunder' methods which have special functionality.
+
 ```python
 import math
 
@@ -135,9 +137,10 @@ class Point:
         return 2
 
 p = Point(5, 2)
+print(p) # [5,2]
+print(len(p)) # 2
 
 ```
-
 
 
 ## Private Variables
