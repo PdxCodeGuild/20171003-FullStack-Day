@@ -1,4 +1,4 @@
-
+c
 # Running Python via the CLI
 
 ## Common Python Commands
@@ -17,7 +17,7 @@ When you download and install Python, what you are getting is a Python interpret
 
 Let's start with the interpreter, as that allows us to run code one line at a time. This way we can see what happens every step of the way
 
-Open a terminal and type `python`, you should see a welcome message, and be left with `>>>`. This is Python's interactive shell. So long as we type in valid Python code, it will execute every line of code we give it. Try using it as a calculator, as seen in the example below, and see what you get.
+Open a terminal and type `python`, you should see a welcome message, and be left with `>>>`. This is Python's interactive shell. So long as we type in valid Python code, it will execute every line of code we give it. Try using it as a calculator, as seen in the example below, and see what you get. To exit the python interpreter at any point, type `exit()` or `quit()`
 
 ```
 >>> 5 + 3
@@ -58,7 +58,7 @@ Here is a non-exhaustive list of the more common data types:
 
 5. Lists:
 
-   Lists are values that can contain multiple values within them. They denoted with square brackets like this `[2, 2.5, "Hello again!", 2]`. As shown, they can not only contain multiple values, but multiple types of values as well. Any kind of data type can be used inside a list, even another list! `["A list inside a list!", [1, 3, 5], "Its quite strange"]`
+   Lists are values that can contain multiple values within them. They denoted with square brackets like this `[2, 2.5, "Hello again!", 2]`. As shown, they can not only contain multiple values, but multiple types of values as well. Any kind of data type can be used inside a list, even another list! `["A list inside a list!", [1, 3, 5], "Its quite miraculous"]`
 
    Lists are a bit more complicated to use than the other types above, but we'll get into that later.
 
@@ -68,7 +68,9 @@ Similarly, `'2'` is not the same as `2`. One of these is stored as a string, the
 
 ## Variables
 
-We can let names stand for values, like in algebra.
+Just like algebra, we can create variables to stand in for values. The syntax for this is `[variable_name] = [expression]`. The interpreter will create a variable with the name you give it, evaluate the expression, then set that variable to whatever the expression evaluated to. You can use almost any combinations of numbers and letters for the name, but variable names must start with a letter or an underscore, and are case sensitive.
+
+Here is a simple example of working with variables. Try typing it into your interpreter to see what happens, then try creating and using your own variables.
 
 ```
 >>> x = 5
@@ -77,12 +79,12 @@ We can let names stand for values, like in algebra.
 8
 ```
 
-To exit the python interpreter, type `exit()` or `quit()`
+So, in the first line we are creating a variable named `x` which is being set to `5`. In the second line, we are setting the value of x again, this time to `x + 3`. The interpreter will first evaluate that statement by first retrieving the value of `x` at that moment, which is still `5`, then adds `3` to that. `x + 3` becomes `5 + 3` and evaluates to `8` as you would expect, and `x` is now set to that value. To confirm, typing in just `x` in the last line gives us back `8`, the value that is now in `x`
 
 
 ## Executing Python Source Files
 
-You can execute python code saved in a plain text file by typing `python filename`. Create a new file `temp.py` with the following contents:
+As our programs become more complex, it is going to be more and more of a hassle to put everything line by line into the interpreter. Let's look at another method of running Python code. Start by creating a text file named `temp.py` and put this code inside it:
 
 ```
 x = 5
@@ -90,7 +92,6 @@ x = x + 3
 print(x)
 ```
 
-Execute this file by opening a terminal, and type `python temp.py`. You should see `8` as the output. Every time you edit the source file, you then run it by typing `python filename` again.
+You can now run the contents of the file from the terminal by navigating to where your file was saved and typing in `python temp.py`. You should then see `8` printed to your terminal. Try changing the code in your file, saving it, and running it in your terminal again. This is how you can save, edit, and run code contained in files on your computer.
 
-
-### Passing Command-Line Arguments
+To run a different file, just give python a different file name to run, like so `python [file_name]`
