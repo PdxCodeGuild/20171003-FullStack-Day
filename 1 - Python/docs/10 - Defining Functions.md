@@ -156,10 +156,36 @@ print(height)
 Functions can call other functions, producing a chain of invocation. Functions can even call themselves, this is called **recursion**. It's important to have a 'stop condition', otherwise this results in infinite recursion and you'll get a 'stack overflow'.
 
 ```python
-def factioral(n):
+def factorial(n):
     if n == 0:
         return 1
     return n*factorial(n-1)
 ```
+
+```python
+def fibonacci(n):
+    if n == 0 or n == 1:
+        return 1
+    return fibonacci(n-1) + fibonacci(n-2)
+```
+
+```python
+# this only works on sorted lists
+def binary_search_recurse(num, nums, low, high):
+    if low >= high:
+        return None
+    mid = (low + high) // 2
+    if nums[mid] == num:
+        return mid
+    elif nums[mid] < num: # search in the upper half
+        return binary_search_recurse(num, nums, mid+1, high)
+    else: # search in the lower half
+        return binary_search_recurse(num, nums, low, mid+1)
+
+        
+def binary_search(num, nums):
+    return binary_search_recurse(num, nums, 0, len(nums)-1)
+```
+
 
 
