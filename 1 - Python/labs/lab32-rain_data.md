@@ -20,7 +20,7 @@ MORE...
 
 Download one of these files (or the csv I've compiled containing all of them), and write a function to load the file. Each line of the file will become a list or class or tuple consisting of a `datetime` and a series of `int`s.
 
-To parse the dates, use `datetime.striptime`. Below I've shown how to parse an example string, resulting in a [datetime](https://docs.python.org/3.6/library/datetime.html#date-objects) object. We can then access the year, month, and day on that datetime as ints.
+To parse the dates, use [datetime.striptime](https://docs.python.org/3/library/datetime.html#strftime-and-strptime-behavior). Below I've shown how to parse an example string, resulting in a [datetime](https://docs.python.org/3.6/library/datetime.html#date-objects) object. We can then access the year, month, and day on that datetime as ints.
 
 ```python
 import datetime
