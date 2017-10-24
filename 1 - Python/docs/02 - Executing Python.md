@@ -1,4 +1,4 @@
-c
+
 # Running Python via the CLI
 
 ## Common Python Commands
@@ -13,9 +13,9 @@ You can find more info in the [official docs](https://docs.python.org/3/using/cm
 
 ## Using the Python Interactive Interpreter
 
-When you download and install Python, what you are getting is a Python interpreter. This interpreter is what reads and performs the code that you will write. There are two ways to use the interpreter: by running it on its own as an interactive shell, or by having it run a file that has python code in it.
+When you download and install Python, what you are getting is a Python interpreter. This interpreter is what reads and performs the code that you will write. There are two ways to use the interpreter: by running it on its own as an interactive shell, or by having it run a file that has Python code in it.
 
-Let's start with the interpreter, as that allows us to run code one line at a time. This way we can see what happens every step of the way
+Let's start with the interactive interpreter, as that allows us to run code one line at a time. This way we can see what happens every step of the way
 
 Open a terminal and type `python`, you should see a welcome message, and be left with `>>>`. This is Python's interactive shell. So long as we type in valid Python code, it will execute every line of code we give it. Try using it as a calculator, as seen in the example below, and see what you get. To exit the python interpreter at any point, type `exit()` or `quit()`
 
@@ -28,9 +28,9 @@ Open a terminal and type `python`, you should see a welcome message, and be left
 
 ## Expressions
 
-Both `5 + 3` and `4*(5+1)+8` are examples of Python expressions. Expressions can be defined as any statement (or piece of code) that can be evaluated by Python into a single value. In this case `5 + 3` evaluates to `8`, and `4*(5+1)+8` to `32`.
+Both `5 + 3` and `4*(5+1)+8` are examples of Python expressions. Expressions are any statement (or piece of code) that can be evaluated by Python into a single value. In this case `5 + 3` evaluates to `8`, and `4*(5+1)+8` to `32`.
 
-Even just `4` can be an expression, as it can be evaluated to... `4`. In this way, expressions can be very simple, or *very* complicated, so long as it can be resolved to a single value.
+Even just `4` can be an expression, as it can be evaluated to... `4`. In this way, expressions can be very simple, or *very* complicated, so long as it can be successfully resolved to a single value.
 
 ## Data types
 
@@ -79,7 +79,7 @@ Here is a simple example of working with variables. Try typing it into your inte
 8
 ```
 
-So, in the first line we are creating a variable named `x` which is being set to `5`. In the second line, we are setting the value of x again, this time to `x + 3`. The interpreter will first evaluate that statement by first retrieving the value of `x` at that moment, which is still `5`, then adds `3` to that. `x + 3` becomes `5 + 3` and evaluates to `8` as you would expect, and `x` is now set to that value. To confirm, typing in just `x` in the last line gives us back `8`, the value that is now in `x`
+So, in the first line we are creating a variable named `x` which is being set to `5`. In the second line, we are setting the value of x again, this time to `x + 3`. The interpreter will evaluate that statement by first retrieving the value of `x` at that moment, which is still `5`, then adds `3` to that. Thus, `x + 3` becomes `5 + 3`, and `x` is now set to that value. To confirm, typing in just `x` in the last line gives us back `8`, the value that is now in `x`
 
 
 ## Executing Python Source Files
