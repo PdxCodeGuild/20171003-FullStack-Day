@@ -50,10 +50,11 @@ Find the year which had the most rain on average.
 
 ## Version 3
 
-Using `matplotlib` create a chart of the dates and the daily totals for a given year. The x_values will be a list of dates The y_values are a list of the daily totals for the Y axis, one for each value in x_values. If you don't have matplotlib installed, run `pip install matplotlib`.
+Using `matplotlib` create a chart of the dates and the daily totals for a given year. The `x_values` will be a list of dates, The `y_values` are a list of the daily totals. If you don't have matplotlib installed, run `pip install matplotlib`. You can learn more about matplotlib [here](https://matplotlib.org/2.1.0/tutorials/introductory/pyplot.html#sphx-glr-tutorials-introductory-pyplot-py).
 
 ```python
 import matplotlib.pyplot as plt
+...
 plt.plot(x_values, y_values)
 plt.show()
-```
+```                                                                                         
