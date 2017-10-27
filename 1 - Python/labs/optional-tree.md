@@ -18,29 +18,29 @@ def generate_tree(depth):
     n_children = int(random.random()*10/depth)
     if n_children == 0:
         return {'type': 'leaf', 'name': random.choice(names)}
-    cell = {'type': 'branch', 'children': []}
+    branch = {'type': 'branch', 'children': []}
     for i in range(n_children):
         child = generate_tree(depth+1)
-        cell['children'].append(child)
-    return cell
+        branch['children'].append(child)
+    return branch
 
 
-def print_node(cell, indentation):
-    if cell['type'] == 'leaf':
-        print(indentation + cell['name'])
+def print_node(node, indentation):
+    if node['type'] == 'leaf':
+        print(indentation + node['name'])
     else:
         print(indentation + '-')
-        for i in range(len(cell['children'])):
-            print_node(cell['children'][i], indentation + '\t')
+        for i in range(len(node['children'])):
+            print_node(node['children'][i], indentation + '\t')
 
 
 # count all trees and branches
-def count_nodes(cell):
-    if cell['type'] == 'leaf':
+def count_nodes(node):
+    if node['type'] == 'leaf':
         return 1
     r = 1
-    for i in range(len(cell['children'])):
-        r += count_nodes(cell['children'][i])
+    for i in range(len(node['children'])):
+        r += count_nodes(node['children'][i])
     return r
 
 
