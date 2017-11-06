@@ -1,0 +1,26 @@
+<html>
+    <head>
+        <title>Magic 8 Ball</title>
+        <script>
+
+            function random_element(array) {
+                let random_index = Math.floor(Math.random()*answers.length);
+                return array[random_index];
+            }
+
+            let answers = ['Absolutely', 'No', 'Never', 'Ask Again Later'];
+            let re = random_element(answers);
+
+            let question = prompt('What is your question?');
+            alert(re);
+
+        </script>
+    </head>
+    <body>
+    </body>
+</html>
+
+
+
+
+

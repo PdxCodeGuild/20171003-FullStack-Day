@@ -1,0 +1,26 @@
+<html>
+    <head>
+        <script>
+            function random_element(array) {
+                let random_index = Math.floor(Math.random()*array.length);
+                return array[random_index];
+            }
+            let eyebrows_list = ['>', '|', ''];
+            let eyes_list = [':', ';', '=', 'X'];
+            let nose_list = ['', '-', '\'', '^', 'o'];
+            let mouth_list = [')', '(', 'D', '&', 'P', 'Q', 'X'];
+            for (let i=0; i<3; ++i) {
+                let eyebrows = random_element(eyebrows_list);
+                let eyes = random_element(eyes_list);
+                let noses = random_element(nose_list);
+                let mouth = random_element(mouth_list);
+                alert(eyebrows + eyes + noses + mouth);
+            }
+
+
+        </script>
+    </head>
+    <body>
+
+    </body>
+</html>
