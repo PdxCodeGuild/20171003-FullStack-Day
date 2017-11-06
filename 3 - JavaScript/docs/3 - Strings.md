@@ -8,8 +8,7 @@ let s = 'hello world!';
 let t = "hello world!";
 ```
 
-
-Below are some common operations that can be performed on strings
+Below are some common operations that can be performed on strings, you can also find a list [here](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps/Useful_string_methods) and [here](https://www.w3schools.com/js/js_string_methods.asp).
 
 - `charAt(index)` and `[index]` will return the character at index `index`
 - `charCodeAt(index)` returns the code of the character at the given index
