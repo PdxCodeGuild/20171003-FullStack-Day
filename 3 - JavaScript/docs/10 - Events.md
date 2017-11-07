@@ -109,14 +109,14 @@ window.onload = function() {
 
 The event parameter that's passed to the function contains the coordinates of the mouse, and which button is pressed.
 
-```javascript
+```html
 <canvas id="cnv" width="100" height="100"></canvas>
 <script>
 let cnv = document.getElementById('cnv');
-dnv.onclick = function(event) {
+cnv.onclick = function(event) {
     var x = event.clientX;
     var y = event.clientY;
-    alert('position: '+x+', '+y+'\nbutton: '+button);
+    alert('position: '+x+', '+y);
 }
 </script>
 ```
