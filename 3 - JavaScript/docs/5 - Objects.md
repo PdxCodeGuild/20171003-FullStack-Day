@@ -22,6 +22,11 @@ console.log(library_user.first_name); // Mike
 console.log(library_user.books[0].title); // A Wrinkle in Time
 ```
 
+You can also access the attributes of an object as you would a dictionary.
+
+```javascript
+
+```
 
 
 
