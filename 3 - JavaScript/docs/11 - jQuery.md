@@ -6,7 +6,7 @@
 
 You can include jQuery by adding the following tag in your `head`.
 
-```
+```html
 <script
   src="https://code.jquery.com/jquery-3.2.1.min.js"
   integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
@@ -41,7 +41,7 @@ $(function() {
 
 One major advantage of jQuery is that it simplifies the selection of elements, and enable you to use CSS selectors. Note that these return special jQuery objects, which are wrapped around the Vanilla JS objects. You can find more about selectors [here](http://api.jquery.com/category/selectors/5 - jQuery.md).
 
-```
+```javascript
 $('#header'); // select the element with an ID of 'header'
 $('li');      // select all list items on the page
 $('ul li');   // select list items that are in unordered lists
@@ -103,10 +103,8 @@ $('li').css({
     color: 'red'
 });
 
-
 // hide an element
 $('li').hide();
-
 ```
 
 ## Events
@@ -147,7 +145,6 @@ $("p").on({
         $(this).css("background-color", "yellow");
     } 
 });
-
 ```
 
 ## Animation
