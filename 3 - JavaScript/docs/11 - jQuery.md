@@ -101,6 +101,13 @@ $('li').hide();
 $('li').show();
 ```
 
+## Creating and Appending Elements
+
+```javascript
+var div = $("<div>", {id: "foo", "class": "a"});
+$("#box").append(div);
+```
+
 ## Events
 
 ```javascript
