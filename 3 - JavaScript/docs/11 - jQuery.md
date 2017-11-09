@@ -39,42 +39,35 @@ $(function() {
 
 ## Selecting Elements
 
-One major advantage of jQuery is that it simplifies the selection of elements, and enable you to use CSS selectors. Note that these return special jQuery objects, which are wrapped around the Vanilla JS objects. You can find more about selectors [here](http://api.jquery.com/category/selectors/5 - jQuery.md).
+One major advantage of jQuery is that it simplifies the selection of elements, and enable you to use CSS selectors. Note that these return special jQuery objects, which are wrapped around the Vanilla JS objects. You can find more about selectors [here](http://api.jquery.com/category/selectors/).
 
-```javascript
-$('#header'); // select the element with an ID of 'header'
-$('li');      // select all list items on the page
-$('ul li');   // select list items that are in unordered lists
-$('.person'); // select all elements with a class of 'person'
-```
+- `$('#header')` select the element with an ID of 'header'
+- `$('li')` select all li tags on the page
+- `$('ul li')` select list items that are in unordered lists
+- `$('.person')` select all elements with a class of 'person'
 
 ## Getting and Setting Values
 
 ### HTML
 
 ```javascript
-// get the innerHTML on every li element
-$('li').html();
-```
+$('#mydiv').html(); // get the innerHTML
+$('#mydiv').html('<b>New HTML</b>'); // set the innerHTML
 
-```javascript
-// set the innerHTML on every li element
-$('li').html('New HTML');
-```
+$('#mydiv').text(); // get the innerText
+$('#mydiv').text('New Text'); // set the innerText
 
-```javascript
 // add explanation points to the innerHTML of every li element
-$('li').html(function( index, oldHtml ) {
-  return oldHtml + '!!!'
+$('li').html(function(index, oldHtml) {
+  return oldHtml + '!!!';
 });
-```
-```javascript
+
 // iterate through each li element
-$( 'li' ).each(function(index, elem) {
+$('li').each(function(index, elem) {
   // this: the current, raw DOM element
   // index: the current element's index in the selection
   // elem: the current, raw DOM element (same as this)
-  $( elem ).prepend( '<b>' + index + ': </b>' );
+  $(elem).prepend('<b>' + index + ': </b>');
 });
 ```
 
@@ -105,6 +98,7 @@ $('li').css({
 
 // hide an element
 $('li').hide();
+$('li').show();
 ```
 
 ## Events
