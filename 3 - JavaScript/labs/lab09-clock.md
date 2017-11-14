@@ -10,7 +10,7 @@ Next make a stopwatch. Start with a button that says 'start'. You can then creat
 - Lap 2: 00:02:34
 - Lap 3: 00:04:21
 
-## Version 3
+## Version 3 (optional)
 
 Next make a countdown timer. The countdown timer should have a text input for the time, and a drop-down list for the units (seconds, minutes, hours). Set an interval which will start a `date` at the given time, and decrement the seconds each second. The countdown timer should alert the user when it's finished (using an `alert("time's up")` or changing the background color, etc).
 
