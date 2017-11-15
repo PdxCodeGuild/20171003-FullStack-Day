@@ -7,14 +7,12 @@ Canvas elements were introduced with HMTL5 and give you complete control over th
 
 
 ```html
-<canvas width="500" height="500"></canvas>
+<canvas id="cnv" width="500" height="500"></canvas>
 <script>
-    let cnv = document.getElementById('tutorial');
-    
+    let cnv = document.getElementById('cnv');
     let ctx = cnv.getContext('2d');
     ctx.fillStyle = 'green';
     ctx.fillRect(10, 10, 100, 100);
-    
 </script>
 ```
 
@@ -22,7 +20,6 @@ Canvas elements were introduced with HMTL5 and give you complete control over th
 
 
 ```javascript
-let ctx = cnv.getContext('2d');
 ctx.rect(20, 20, 150, 100);
 ctx.stroke();
 ```
@@ -30,8 +27,6 @@ ctx.stroke();
 ## Writing Text
 
 ```javascript
-var cnv = document.getElementById("cnv");
-var ctx = cnv.getContext("2d");
 ctx.font = "30px Arial";
 ctx.fillText("Hello World", 10, 50);
 ```
