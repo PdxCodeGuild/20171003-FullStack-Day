@@ -3,7 +3,7 @@
 # Canvas Drawing
 
 
-Canvas elements were introduced with HMTL5 and give you complete control over the colors and shapes that occur within it. Canvas elements **must** have `width` and `height` attributes.
+Canvas elements were introduced with HMTL5 and give you complete control over the colors and shapes that occur within it. You can find more info [here](https://www.w3schools.com/graphics/canvas_reference.asp) and [here](https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial). Canvas elements **must** have `width` and `height` attributes.
 
 
 ```html
@@ -16,31 +16,41 @@ Canvas elements were introduced with HMTL5 and give you complete control over th
 </script>
 ```
 
-## Drawing a Rectangle
+## Rectangles
 
+- `clearRect(x, y, w, h)` clears a rectangle of all colors
+- `fillRect(x, y, w, h)` fills in a rectangle
+- `strokeRect(x, y, w, h)` draws the outline of a rectangle
+- `rect(x, y, w, h)` creates a rectangle, which can then be followed up by `fill()` or `stoke()`
+
+## Circles
 
 ```javascript
-ctx.rect(20, 20, 150, 100);
+ctx.beginPath();
+ctx.arc(100, 100, 20, 0, 2*Math.PI, false);
+ctx.strokeStyle = 'white';
 ctx.stroke();
 ```
 
-## Writing Text
+## Lines
 
 ```javascript
-ctx.font = "30px Arial";
-ctx.fillText("Hello World", 10, 50);
-```
-
-
-## Drawing a Line
-
-```javascript
-var cnv = document.getElementById("cnv");
-var ctx = cnv.getContext("2d");
 ctx.beginPath();
 ctx.moveTo(0,0);
 ctx.lineTo(300,150);
 ctx.stroke();
+```
+
+## Text
+
+- `font` allows you to specify the font to be used
+- `fillText(text, x, y)` draws filled-in text
+- `strokeText(text, x, y)` draws the outline of text
+- `measureText(text)` measures the size of text
+
+```javascript
+ctx.font = "30px Arial";
+ctx.fillText("Hello World", 10, 50);
 ```
 
 ## Accessing Pixels Directly
