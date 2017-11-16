@@ -30,6 +30,7 @@ There are several special characters you can use to denote different things in r
 - `*` match 0 or more instances of the preceding character
 - `+` match 1 or more instances of the preceding character
 - `?` match 0 or 1 instance of the preceding character
+- `{a,b}` match between a and b of the preceding character
 
 
 ## Matching Ranges
