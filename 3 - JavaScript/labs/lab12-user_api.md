@@ -1,7 +1,7 @@
 
 # Lab 12: User API
 
-Use the [reques.in](https://reqres.in/) API to show a list of users. The default view should be the first page of user: [example](https://raw.githubusercontent.com/PdxCodeGuild/PythonFullStack/master/3_JavaScript/resources/formatted-cards.png). If that API fails for some reason, you can also use [this one](https://jsonplaceholder.typicode.com/).
+Use the [reques.in](https://reqres.in/) API to show a list of users. The default view should be the first page of user: [example](https://raw.githubusercontent.com/PdxCodeGuild/PythonFullStack/master/3_JavaScript/resources/formatted-cards.png). If that API fails for some reason, you can also use [this one](https://jsonplaceholder.typicode.com/) or [this one](https://randomuser.me/).
 
 ## Version 2
 
