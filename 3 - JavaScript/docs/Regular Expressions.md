@@ -1,6 +1,8 @@
 # Regular Expressions
 
-Regular expressions (regex) are patterns used to match character combinations in strings. In JavaScript, you can either call methods on a regular expression object or you can use regex in methods called on strings. You can read more about regular expressions [here](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions) and [here](https://www.sitepoint.com/expressions-javascript/).
+Regular expressions (regex) are patterns used to match character combinations in strings. In JavaScript, you can either call methods on a regular expression object or you can use regex in methods called on strings. You can read more about regular expressions [here](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions) and [here](https://www.sitepoint.com/expressions-javascript/). You may also find these useful: [regexlib.com](http://www.regexlib.com/) and [regex101.com](https://regex101.com/).
+
+
 
 There are two ways of defining regex patterns. One uses slashes, the other uses `RegExp` class.
 
