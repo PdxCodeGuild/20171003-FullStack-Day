@@ -30,6 +30,29 @@ The possible values for `readyState` are shown below, you can find more info [he
 - 4 DONE: the request has been completed
 
 
+
+Here I've wrapped an AJAX request in a 
+
+
+```javascript
+function http_get(url, success) {
+    let xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        if (this.readyState === 4 && this.status === 200) {
+            let data = JSON.parse(xhttp.responseText);
+            success(data);
+        }
+    };
+    xhttp.open("GET", url);
+    xhttp.send();
+}
+
+http_get("https://api.ipify.org/?format=json", function(data) {
+    console.log(data);
+});
+```
+
+
 It's a little more succinct in jQuery:
 
 ```
