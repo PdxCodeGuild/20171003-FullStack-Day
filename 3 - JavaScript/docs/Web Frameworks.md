@@ -1,8 +1,8 @@
 
 ## Public APIs
 
-- [Public APIs](https://github.com/toddmotto/public-apis)
-
+- [a list on github](https://github.com/toddmotto/public-apis)
+- [list on data.gov](https://catalog.data.gov/dataset?q=-aapi+api+OR++res_format%3Aapi#topic=developers_navigation)
 
 ## Back-End
 - [Django](https://www.djangoproject.com/)
