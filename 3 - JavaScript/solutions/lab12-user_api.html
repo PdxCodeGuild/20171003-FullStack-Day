@@ -1,0 +1,78 @@
+<html>
+    <head></head>
+    <body>
+        <div id="container">
+        </div>
+        <div id="links_div">
+        </div>
+        <script>
+            function http_get(url, success) {
+                let xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function() {
+                    if (this.readyState === 4 && this.status === 200) {
+                        let data = JSON.parse(xhttp.responseText);
+                        success(data);
+                    }
+                };
+                xhttp.open("GET", url);
+                xhttp.send();
+            }
+
+            let page = 1;
+            let container = document.querySelector('#container');
+            let links_div = document.querySelector('#links_div');
+
+            load_page();
+
+            function load_page() {
+                http_get("https://reqres.in/api/users?page="+page, function(data) {
+                    container.innerHTML = '';
+                    links_div.innerHTML = '';
+                    let users = data.data;
+                    for (let i=0; i<users.length; ++i) {
+
+                        let first_name = users[i].first_name;
+                        let last_name = users[i].last_name;
+                        let avatar = users[i].avatar;
+
+                        let outer_div = document.createElement('div');
+                        outer_div.style.margin = '20px';
+
+                        let name_span = document.createElement('div');
+                        name_span.innerText = first_name + ' ' + last_name;
+
+                        let img = document.createElement('img');
+                        img.src = avatar;
+
+                        outer_div.appendChild(name_span);
+                        outer_div.appendChild(img);
+                        container.appendChild(outer_div);
+
+                    }
+
+                    for (let i=0; i<data.total_pages; ++i) {
+                        let page_link = document.createElement('button');
+                        page_link.href = '#';
+                        page_link.style.border = '1px solid grey';
+                        page_link.innerText = i+1;
+                        page_link.style.margin = '4px';
+                        page_link.style.padding = '2px';
+                        page_link.onclick = function() {
+                            page = this.innerText;
+                            load_page();
+                        };
+                        links_div.appendChild(page_link);
+
+                    }
+
+
+                });
+
+            }
+
+
+        </script>
+    </body>
+
+</html>
+
