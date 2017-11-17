@@ -1,0 +1,115 @@
+
+<html>
+    <head>
+        <style>
+            body {
+                background-color:black;
+            }
+            canvas {
+                border: 1px solid white;
+            }
+        </style>
+    </head>
+    <body>
+        <canvas id="cnv" width="1000" height="500"></canvas>
+        <script>
+            var cnv = document.getElementById('cnv');
+            var friction = 0.999;
+
+            var balls = [];
+
+            var counter = 0;
+
+            function getMousePosition(evt) {
+                var rect = cnv.getBoundingClientRect();
+                var x = evt.clientX - rect.left;
+                var y = evt.clientY - rect.top;
+                return {x: x, y: y};
+            }
+
+
+            cnv.onmousedown = function(evt) {
+                var mouse_position = getMousePosition(evt);
+
+                balls = [];
+                for (var i=0; i<1000; ++i) {
+                    var radius = Math.random()*10;
+                    var angle = Math.random()*Math.PI*2;
+                    var vx = radius*Math.cos(angle);
+                    var vy = radius*Math.sin(angle);
+                    var ball = {
+                        radius: 1,
+                        px: mouse_position.x,
+                        py: mouse_position.y,
+                        vx: vx,
+                        vy: vy
+                    };
+                    balls.push(ball);
+                }
+            };
+
+
+            function update(dt) {
+
+                for (var i=0; i<balls.length; ++i) {
+                    var ball = balls[i];
+                    ball.vy += 0.1*dt;
+                    ball.px += ball.vx*dt;
+                    ball.py += ball.vy*dt;
+                    var d = 0.001;
+                    if (ball.px-ball.radius < 0) {
+                        ball.px = 0+ball.radius+d;
+                        ball.vx *= -1;
+                        ball.vx *= friction;
+                        ball.vy *= friction;
+                    } else if (ball.px+ball.radius > cnv.width) {
+                        ball.px = cnv.width-ball.radius-d;
+                        ball.vx *= -1;
+                        ball.vx *= friction;
+                        ball.vy *= friction;
+                    }
+                    if (ball.py-ball.radius < 0) {
+                        ball.py = 0+ball.radius+d;
+                        ball.vy *= -1;
+                        ball.vx *= friction;
+                        ball.vy *= friction;
+                    } else if (ball.py+ball.radius > cnv.height) {
+                        ball.py = cnv.height-ball.radius-d;
+                        ball.vy *= -1;
+                        ball.vx *= friction;
+                        ball.vy *= friction;
+                    }
+                }
+            }
+            function draw() {
+                var ctx = cnv.getContext("2d");
+                //ctx.clearRect(0, 0, cnv.width, cnv.height);
+                ctx.fillStyle = "rgba(0, 0, 0, 0.01)";
+                ctx.fillRect(0, 0, cnv.width, cnv.height);
+
+                ctx.fillStyle = "#FFFFFF";
+                //ctx.fillStyle = "hsl("+counter+",100%,50%)";
+                //counter += 1;
+                //counter %= 360;
+
+                for (var i=0; i<balls.length; ++i) {
+                    var ball = balls[i];
+
+                    ctx.beginPath();
+                    //ctx.fillRect(ball.px-ball.radius, ball.py-ball.radius, 2*ball.radius, 2*ball.radius);
+                    ctx.arc(ball.px, ball.py, ball.radius, 0, 2 * Math.PI, false);
+                    ctx.fill();
+                }
+            }
+
+            function game_loop() {
+                window.requestAnimationFrame(game_loop);
+                update(1.0);
+                draw();
+            }
+            window.requestAnimationFrame(game_loop);
+            //draw();
+        </script>
+    </body>
+</html>
+

@@ -1,0 +1,144 @@
+<html>
+    <head>
+        <style>
+            #header_div {
+                text-align:center;
+            }
+            #contact_table {
+                width:50%;
+                margin:0 auto;
+                text-align:left;
+            }
+
+            #contact_table th {
+                background-color:RoyalBlue;
+                color:white;
+            }
+
+            #contact_table tr:nth-child(even) td {
+                background: #F1F1F1;
+            }
+
+            .invalid {
+                border: 1px solid red;
+            }
+
+            input:focus {
+                outline-color:goldenrod;
+            }
+
+        </style>
+    </head>
+    <body>
+        <div id="header_div">
+            <input id="contact_name" type="text" placeholder="name"/>
+            <input id="contact_age" type="text" placeholder="age"/>
+            <input id="contact_favorite_fruit" type="text" placeholder="favorite fruit"/>
+            <input id="contact_favorite_color" type="text" placeholder="favorite color"/>
+            <button id="bt_add">add</button>
+        </div>
+        <hr/>
+        <table id="contact_table">
+            <tr>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Favorite Fruit</th>
+                <th>Favorite Color</th>
+                <th></td>
+            </tr>
+        </table>
+        <script>
+            let contact_name = document.querySelector('#contact_name');
+            let contact_age = document.querySelector('#contact_age');
+            let contact_favorite_fruit = document.querySelector('#contact_favorite_fruit');
+            let contact_favorite_color = document.querySelector('#contact_favorite_color');
+            let bt_add = document.querySelector('#bt_add');
+            let contact_table = document.querySelector('#contact_table');
+
+            let contacts = [];
+
+            class Contact {
+                constructor(name, age, favorite_fruit, favorite_color) {
+                    this.name = name;
+                    this.age = age;
+                    this.favorite_fruit = favorite_fruit;
+                    this.favorite_color = favorite_color;
+                }
+            }
+
+
+            function add_error_stuff(element) {
+                element.addEventListener('input', function() {
+                    this.classList.remove('invalid');
+                });
+                bt_add.addEventListener('click', function() {
+                    if (element.value === '') {
+                        element.classList.add('invalid');
+                    }
+                });
+            }
+
+            add_error_stuff(contact_name);
+            add_error_stuff(contact_age);
+            add_error_stuff(contact_favorite_fruit);
+            add_error_stuff(contact_favorite_color);
+
+
+
+
+
+            bt_add.addEventListener('click', function() {
+
+                let name = contact_name.value;
+                let age = contact_age.value;
+                let favorite_fruit = contact_favorite_fruit.value;
+                let favorite_color = contact_favorite_color.value;
+
+                if (name === '' || age === '' || favorite_fruit === '' || favorite_color === '') {
+                    alert('Please enter some information');
+                    return;
+                }
+
+                contact_name.value = '';
+                contact_age.value = '';
+                contact_favorite_fruit.value = '';
+                contact_favorite_color.value = '';
+
+                let contact = new Contact(name, age, favorite_fruit, favorite_color);
+                contacts.push(contact);
+
+                let tr = document.createElement('tr');
+
+                let td_name = document.createElement('td');
+                td_name.innerText = name;
+
+                let td_age = document.createElement('td');
+                td_age.innerText = age;
+
+                let td_favorite_fruit = document.createElement('td');
+                td_favorite_fruit.innerText = favorite_fruit;
+
+                let td_favorite_color = document.createElement('td');
+                td_favorite_color.innerText = favorite_color;
+
+                let bt_remove = document.createElement('button');
+                bt_remove.innerText = 'x';
+                bt_remove.addEventListener('click', function() {
+                    this.parentElement.parentElement.remove();
+                });
+                let td_bt = document.createElement('td');
+                td_bt.appendChild(bt_remove);
+
+                tr.appendChild(td_name);
+                tr.appendChild(td_age);
+                tr.appendChild(td_favorite_fruit);
+                tr.appendChild(td_favorite_color);
+                tr.appendChild(td_bt);
+
+                contact_table.appendChild(tr);
+
+            });
+
+        </script>
+    </body>
+</html>

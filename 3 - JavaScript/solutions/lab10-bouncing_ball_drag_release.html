@@ -1,0 +1,118 @@
+
+<html>
+    <head>
+    </head>
+    <body>
+        <canvas id="cnv" width="1000" height="500" style="border:1px solid black"></canvas>
+        <script>
+            var cnv = document.getElementById('cnv');
+            var friction = 0.999;
+
+            var ball = {
+                radius: 100,
+                px: cnv.width/2,//Math.random()*cnv.width,
+                py: cnv.height/2,//Math.random()*cnv.height,
+                vx: (2.0*Math.random()-1.0)*10,
+                vy: (2.0*Math.random()-1.0)*10
+            };
+
+            function getMousePosition(evt) {
+                var rect = cnv.getBoundingClientRect();
+                var x = evt.clientX - rect.left;
+                var y = evt.clientY - rect.top;
+                return {x: x, y: y};
+            }
+
+            var mouse_down = false;
+            var mouse_initial = null;
+            var mouse_final = null;
+
+
+            cnv.onmousedown = function(evt) {
+                mouse_down = true;
+                mouse_initial = getMousePosition(evt);
+                mouse_final = getMousePosition(evt);
+                ball.px = mouse_final.x;
+                ball.py = mouse_final.y;
+            };
+            cnv.onmousemove = function(evt) {
+                if (mouse_down) {
+                    mouse_final = getMousePosition(evt);
+                    ball.px = mouse_final.x;
+                    ball.py = mouse_final.y;
+                }
+            };
+            cnv.onmouseup = function(evt) {
+                if (mouse_down) {
+                    mouse_final = getMousePosition(evt);
+                    ball.vx = (mouse_initial.x - mouse_final.x)*0.1;
+                    ball.vy = (mouse_initial.y - mouse_final.y)*0.1;
+                }
+                mouse_down = false;
+            };
+            cnv.onmouseleave = function() {
+                mouse_down = false;
+            }
+
+
+            function update(dt) {
+                if (mouse_down) {
+                    return;
+                }
+                //ball.vy += 0.1*dt;
+                ball.px += ball.vx*dt;
+                ball.py += ball.vy*dt;
+                var d = 0.001;
+                if (ball.px-ball.radius < 0) {
+                    ball.px = 0+ball.radius+d;
+                    ball.vx *= -1;
+                    ball.vx *= friction;
+                    ball.vy *= friction;
+                } else if (ball.px+ball.radius > cnv.width) {
+                    ball.px = cnv.width-ball.radius-d;
+                    ball.vx *= -1;
+                    ball.vx *= friction;
+                    ball.vy *= friction;
+                }
+                if (ball.py-ball.radius < 0) {
+                    ball.py = 0+ball.radius+d;
+                    ball.vy *= -1;
+                    ball.vx *= friction;
+                    ball.vy *= friction;
+                } else if (ball.py+ball.radius > cnv.height) {
+                    ball.py = cnv.height-ball.radius-d;
+                    ball.vy *= -1;
+                    ball.vx *= friction;
+                    ball.vy *= friction;
+                }
+            }
+            function draw() {
+                var ctx = cnv.getContext("2d");
+                ctx.clearRect(0, 0, cnv.width, cnv.height);
+                ctx.fillStyle = "#000000";
+                ctx.beginPath();
+                //ctx.fillRect(ball.px-ball.radius, ball.py-ball.radius, 2*ball.radius, 2*ball.radius);
+                ctx.arc(ball.px, ball.py, ball.radius, 0, 2 * Math.PI, false);
+                ctx.fill();
+
+                if (mouse_down) {
+                    ctx.strokeStyle = '#000000';
+                    ctx.beginPath();
+                    ctx.moveTo(mouse_initial.x, mouse_initial.y);
+                    ctx.lineTo(mouse_final.x, mouse_final.y);
+                    ctx.stroke();
+                }
+
+            }
+
+            function game_loop() {
+                window.requestAnimationFrame(game_loop);
+                update(1.0);
+                draw();
+            }
+            window.requestAnimationFrame(game_loop);
+            //draw();
+        </script>
+    </body>
+</html>
+

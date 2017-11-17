@@ -1,0 +1,230 @@
+<html>
+    <head>
+        <style>
+            body {
+              color:white;
+              background-color:black;
+            }
+
+            #cnv {
+              border: 0.5px solid white;
+            }
+
+            #score_div {
+              text-align:center;
+              position:absolute;
+              width:600px;
+              margin-top:10px;
+              z-index:2;
+              font-size:20px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="score_div">0 | 0</div>
+        <canvas id="cnv" width="600" height="400"></canvas>
+        <script>
+
+
+            class Ball {
+                constructor(x, y, vx, vy, radius) {
+                    this.x = x;
+                    this.y = y;
+                    this.vx = vx;
+                    this.vy = vy;
+                    this.radius = radius;
+                }
+
+                draw(ctx) {
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, this.radius, 0, 2 * Math.PI, false);
+                    ctx.strokeStyle = 'white';
+                    ctx.stroke();
+                }
+            }
+
+            class Paddle {
+                constructor(x, y, vx, vy, width, height) {
+                    this.x = x;
+                    this.y = y;
+                    this.vx = vx;
+                    this.vy = vy;
+                    this.width = width;
+                    this.height = height;
+                }
+
+                draw(ctx) {
+                    ctx.strokeStyle = 'white';
+                    ctx.rect(this.x, this.y, this.width, this.height);
+                    ctx.stroke();
+                }
+            }
+
+
+            // let keys = [];
+            // window.addEventListener('keydown', function(evt) {
+            //   keys.push(evt.keyCode);
+            // });
+            // window.addEventListener('keydown', function(evt) {
+            //   let index = keys.indexOf(evt.keyCode);
+            //   if (index >= 0) {
+            //     keys.splice(index, 1);
+            //   }
+            // });
+            // function keyIsDown(keycode) {
+            //   return keys.indexOf(keycode) != -1;
+            // }
+
+            let KEY_CODE_W = 87;
+            let KEY_CODE_S = 83;
+            let KEY_CODE_I = 73;
+            let KEY_CODE_K = 75;
+
+
+            window.addEventListener('keydown', function (evt) {
+                let kc = evt.keyCode;
+                if (kc === KEY_CODE_W) {
+                    paddle_left.vy = -paddle_move_speed;
+                } else if (kc === KEY_CODE_S) {
+                    paddle_left.vy = paddle_move_speed;
+                } else if (kc === KEY_CODE_I) {
+                    paddle_right.vy = -paddle_move_speed;
+                } else if (kc === KEY_CODE_K) {
+                    paddle_right.vy = paddle_move_speed;
+                }
+            });
+
+            window.addEventListener('keyup', function (evt) {
+                let kc = evt.keyCode;
+                if (kc === KEY_CODE_W) {
+                    paddle_left.vy = 0;
+                } else if (kc === KEY_CODE_S) {
+                    paddle_left.vy = 0;
+                } else if (kc === KEY_CODE_I) {
+                    paddle_right.vy = 0;
+                } else if (kc === KEY_CODE_K) {
+                    paddle_right.vy = 0;
+                }
+            });
+
+
+            let ball = new Ball(0, 0, 0, 0, 10);
+            let cnv = document.querySelector('#cnv');
+
+            let score_left = 0;
+            let score_right = 0;
+
+            let paddle_width = 80;
+            let paddle_height = 150;
+            let paddle_offset = 10;
+            let paddle_move_speed = 4;
+            let paddle_left = new Paddle(paddle_offset,
+                cnv.height / 2 - paddle_height / 2,
+                0, 0,
+                paddle_width,
+                paddle_height);
+            let paddle_right = new Paddle(cnv.width - paddle_width - paddle_offset,
+                cnv.height / 2 - paddle_height / 2,
+                0, 0,
+                paddle_width, paddle_height);
+
+
+            function show_score() {
+                let score_div = document.querySelector('#score_div');
+                score_div.innerText = score_left + ' | ' + score_right;
+            }
+
+
+            function reset_ball() {
+                ball.x = cnv.width / 2;
+                ball.y = cnv.height / 2;
+                let ball_speed = 2;
+                ball.vx = ball_speed*(2*Math.random() - 1);
+                ball.vy = ball_speed*(2*Math.random() - 1);
+            }
+
+            reset_ball();
+
+
+            function accelerate_ball() {
+                ball.vx *= 1.1;
+                ball.vy *= 1.1;
+            }
+
+
+            function animation_step(timestamp) {
+
+                ball.x += ball.vx;
+                ball.y += ball.vy;
+
+                paddle_left.x += paddle_left.vx;
+                paddle_left.y += paddle_left.vy;
+                if (paddle_left.y < paddle_offset) {
+                    paddle_left.y = paddle_offset;
+                    paddle_left.vy = 0;
+                }
+                if (paddle_left.y + paddle_left.height > cnv.height - paddle_offset) {
+                    paddle_left.y = cnv.height - paddle_offset - paddle_left.height;
+                    paddle_left.vy = 0;
+                }
+
+                paddle_right.x += paddle_right.vx;
+                paddle_right.y += paddle_right.vy;
+                if (paddle_right.y < paddle_offset) {
+                    paddle_right.y = paddle_offset;
+                    paddle_right.vy = 0;
+                }
+                if (paddle_right.y + paddle_right.height > cnv.height - paddle_offset) {
+                    paddle_right.y = cnv.height - paddle_offset - paddle_right.height;
+                    paddle_right.vy = 0;
+                }
+
+                let ctx = cnv.getContext('2d');
+                ctx.clearRect(0, 0, cnv.width, cnv.height);
+                ball.draw(ctx);
+                paddle_left.draw(ctx);
+                paddle_right.draw(ctx);
+
+                if (ball.x - ball.radius < 0) {
+                    ball.vx *= -1;
+                    score_left += 1;
+                    show_score();
+                    reset_ball();
+                } else if (ball.x + ball.radius > cnv.width) {
+                    ball.vx *= -1;
+                    score_right += 1;
+                    show_score();
+                    reset_ball();
+                }
+                if (ball.y - ball.radius < 0) {
+                    ball.vy *= -1;
+                    accelerate_ball();
+
+                } else if (ball.y + ball.radius > cnv.height) {
+                    ball.vy *= -1;
+                    accelerate_ball();
+                }
+
+                if (ball.x-ball.radius < paddle_left.x + paddle_left.width
+                    && ball.y < paddle_left.y+paddle_left.height
+                    && ball.y > paddle_left.y) {
+                    ball.vx *= -1;
+                    accelerate_ball();
+                }
+                if (ball.x+ball.radius > paddle_right.x
+                    && ball.y < paddle_right.y + paddle_right.height
+                    && ball.y > paddle_right.y) {
+                    ball.vx *= -1;
+                    accelerate_ball();
+                }
+
+                window.requestAnimationFrame(animation_step);
+            }
+
+            window.requestAnimationFrame(animation_step);
+
+
+        </script>
+    </body>
+
+</html>

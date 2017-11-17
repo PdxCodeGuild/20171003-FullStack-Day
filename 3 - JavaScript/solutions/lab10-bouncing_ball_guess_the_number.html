@@ -1,0 +1,89 @@
+<html>
+    <head>
+        <style>
+
+            html, body, #main_div {
+                width:96%;
+                height:96%;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="main_div"></div>
+        <script>
+            var main_div = document.getElementById('main_div');
+            var number_balls = [];
+
+            var max_value = 10;
+
+            var target = Math.floor(1+Math.random()*max_value);
+
+            for (var i=0; i<max_value; ++i) {
+
+
+                var number_ball = {
+                    px: Math.random()*main_div.offsetWidth,
+                    py: Math.random()*main_div.offsetHeight,
+                    vx: (2*Math.random()-1)*2,
+                    vy: (2*Math.random()-1)*2
+                };
+
+                var number_bt = document.createElement('button');
+                number_bt.innerHTML = (i+1).toString();
+                number_bt.value = (i+1).toString();
+                number_bt.style.position = 'absolute';
+                number_bt.style.left = number_ball.px.toString();
+                number_bt.style.top = number_ball.py.toString();
+                number_bt.onmousedown = function() {
+                    this.disabled = 'disabled';
+                    if (parseInt(this.value) === target) {
+                        alert('you won!');
+                    }
+                };
+
+                number_ball.bt = number_bt;
+
+                number_balls.push(number_ball);
+                main_div.appendChild(number_bt);
+            }
+
+
+            function update() {
+                window.requestAnimationFrame(update);
+
+                for (var i=0; i<number_balls.length; ++i) {
+                    var nb = number_balls[i];
+                    nb.px += nb.vx;
+                    nb.py += nb.vy;
+                    nb.vy += 0.1;
+
+                    var width = main_div.offsetWidth;
+                    var height = main_div.offsetHeight;
+
+                    if (nb.px < 0) {
+                        nb.px = 0;
+                        nb.vx *= -1;
+                    } else if (nb.px > width) {
+                        nb.px = width;
+                        nb.vx *= -1;
+                    }
+
+                    if (nb.py < 0) {
+                        nb.py = 0;
+                        nb.vy *= -1;
+                    } else if (nb.py > height) {
+                        nb.py = height;
+                        nb.vy *= -1;
+                    }
+
+                    nb.bt.style.left = nb.px.toString();
+                    nb.bt.style.top = nb.py.toString();
+                }
+
+            }
+            window.requestAnimationFrame(update);
+
+        </script>
+    </body>
+</html>
+

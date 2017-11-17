@@ -1,0 +1,97 @@
+
+<html>
+    <head>
+        <title>TODO</title>
+        <style>
+            #outerdiv {
+                margin: 0 auto;
+                width:500px;
+            }
+            .todo_item > *{
+                display:inline-block;
+            }
+            .todo_item div {
+                width:200px;
+            }
+            ul {
+                list-style:circle;
+            }
+            button {
+                background-color:transparent;
+                border:none;
+                color:black;
+            }
+            button:hover {
+                color:darkgoldenrod;
+            }
+            button:active {
+                outline:none;
+                color:goldenrod;
+            }
+            button:focus {
+                outline:none;
+            }
+            #todo_list {
+                list-style-type: none;
+            }
+            #completed_list {
+                text-decoration:line-through;
+                list-style-type: none;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="outerdiv">
+            <h1>To-do List</h1>
+            <div>
+                <input id="todo_input" type="text"/>
+                <button id="add_bt">+</button>
+            </div>
+            <ul id="todo_list"></ul>
+            <ul id="completed_list"></ul>
+        </div>
+        <script type="text/javascript">
+            let add_bt = document.querySelector('#add_bt');
+            let todo_input = document.querySelector('#todo_input');
+            let list = document.querySelector('#todo_list');
+            let completed_list = document.querySelector('#completed_list');
+
+
+
+            add_bt.onclick = function() {
+                let text = todo_input.value;
+                if (text === '') {
+                    return;
+                }
+                todo_input.value = '';
+                let li = document.createElement('li');
+                li.classList.add('todo_item');
+                let text_div = document.createElement('div');
+                text_div.innerHTML = text;
+
+                let button_complete = document.createElement('button');
+                button_complete.innerHTML = '&#x2713;';
+                button_complete.onclick = function() {
+                    list.removeChild(this.parentElement);
+                    let li = document.createElement('li');
+                    li.innerText = text;
+                    completed_list.appendChild(li);
+                };
+
+                let button_remove = document.createElement('button');
+                button_remove.innerHTML = '&#x2715;';
+                button_remove.onclick = function() {
+                    list.removeChild(this.parentElement);
+                };
+
+
+
+
+                li.appendChild(text_div);
+                li.appendChild(button_complete);
+                li.appendChild(button_remove);
+                list.appendChild(li);
+            }
+        </script>
+    </body>
+</html>

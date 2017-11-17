@@ -1,0 +1,29 @@
+<html>
+    <head>
+        <style>
+            #countdown {
+                text-align:center;
+                width:100%;
+                font-size:500px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="countdown"></div>
+        <script>
+            let countdown = document.querySelector('#countdown');
+            let c = 5;
+            setInterval(function() {
+                countdown.innerText = c;
+                if (c === 0) {
+                    let urls = ['http://www.google.com',
+                                'http://www.youtube.com',
+                                'http://www.reddit.com'];
+                    let index = Math.floor(Math.random()*urls.length);
+                    window.location = urls[index];
+                }
+                c -= 1;
+            }, 1000);
+        </script>
+    </body>
+</html>

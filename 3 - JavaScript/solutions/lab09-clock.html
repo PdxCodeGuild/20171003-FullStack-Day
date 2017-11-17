@@ -1,0 +1,241 @@
+<html>
+    <head>
+        <style>
+            body {
+                font-family: 'Courier New', sans-serif;
+                text-align:center;
+            }
+            #clock_div {
+                font-size:30px;
+                margin:20px;
+            }
+            #button_div button {
+                background-color:transparent;
+                border:none;
+                display:inline-block;
+            }
+            #button_div button:disabled {
+                color:goldenrod;
+            }
+            #button_div button:enabled {
+                color:grey;
+            }
+            #button_div button:hover:enabled {
+                color:goldenrod;
+            }
+            #button_div button:active:enabled {
+                color:darkgoldenrod;
+            }
+            #button_div button:focus {
+                outline:none;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="button_div">
+            <button id="button_clock">[clock]</button>
+            <button id="button_stopwatch">[stopwatch]</button>
+            <button id="button_countdown">[countdown]</button>
+        </div>
+        <div id="clock_div"></div>
+        <div id="stopwatch_div">
+            <div id="view_stopwatch"></div>
+            <button id="bt_start_stopwatch">start</button>
+            <button id="bt_pause_stopwatch">pause</button>
+            <button id="bt_resume_stopwatch">resume</button>
+            <button id="bt_stop_stopwatch">stop</button>
+        </div>
+        <div id="countdown_div">
+            <input id="input_countdown" type="text" placeholder="e.g. '5 minutes'"/>
+            <button id="bt_start_countdown">start</button>
+            <div id="view_countdown"></div>
+        </div>
+        <script>
+
+            // 24/12-hour
+            // analog view
+            // binary
+            // change time-zone
+
+
+            // make button at top like a title
+            // allow click
+
+
+            var button_clock = document.getElementById('button_clock');
+            var button_stopwatch = document.getElementById('button_stopwatch');
+            var button_countdown = document.getElementById('button_countdown');
+
+            var clock_div = document.getElementById('clock_div');
+            var stopwatch_div = document.getElementById('stopwatch_div');
+            var countdown_div = document.getElementById('countdown_div');
+
+            stopwatch_div.style.display = 'none';
+            countdown_div.style.display = 'none';
+            button_clock.disabled = 'disabled';
+
+            button_clock.onclick = function() {
+                clock_div.style.display = 'block';
+                stopwatch_div.style.display = 'none';
+                countdown_div.style.display = 'none';
+                button_clock.disabled = 'disabled';
+                button_stopwatch.removeAttribute('disabled');
+                button_countdown.removeAttribute('disabled');
+            };
+            button_stopwatch.onclick = function() {
+                clock_div.style.display = 'none';
+                stopwatch_div.style.display = 'block';
+                countdown_div.style.display = 'none';
+                button_clock.removeAttribute('disabled');
+                button_stopwatch.disabled = 'disabled';
+                button_countdown.removeAttribute('disabled');
+            };
+            button_countdown.onclick = function() {
+                clock_div.style.display = 'none';
+                stopwatch_div.style.display = 'none';
+                countdown_div.style.display = 'block';
+                button_clock.removeAttribute('disabled');
+                button_stopwatch.removeAttribute('disabled');
+                button_countdown.disabled = 'disabled';
+            };
+
+            function add0(n) {
+                return (n < 10)? '0'+n: n;
+            }
+            function add00(n) {
+                return (n < 10)? '00'+n:
+                        (n < 100)? '0'+n: n;
+            }
+
+            function time_str(date) {
+                var hh = add0(date.getHours());
+                var mm = add0(date.getMinutes());
+                var ss = add0(date.getSeconds());
+                return hh+':'+mm+':'+ss;
+            }
+
+
+            function to_binary(n) {
+                var r = '';
+                while (n > 0) {
+                    r = (n%2) + r;
+                    n = Math.floor(n / 2);
+                }
+                return r;
+            }
+            function get_datetime_precise() {
+                var now = new Date();
+                var dd = add0(now.getDate());
+                var MM = add0(now.getMonth()+1);
+                var yyyy = now.getFullYear();
+                var hh = add0(now.getHours());
+                var mm = add0(now.getMinutes());
+                var ss = add0(now.getSeconds());
+                var ms = add00(now.getMilliseconds());
+                var now_str = yyyy+':'+MM+':'+dd+' '+hh+':'+mm+':'+ss+':'+ms;
+                clock_div.innerHTML = now_str;
+            }
+
+            function get_datetime_pretty() {
+                var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+                var days_of_week = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+                var now = new Date();
+                var week_day = days_of_week[now.getDay()];
+            }
+
+            var clock_interval = setInterval(get_datetime_precise, 1);
+
+
+
+
+            // stopwatch -------------------------------------------------------------------------
+
+            var get23414 = document.getElementById;
+
+
+
+            var view_stopwatch = document.getElementById('view_stopwatch');
+            var bt_start_stopwatch = document.getElementById('bt_start_stopwatch');
+            var bt_stop_stopwatch = document.getElementById('bt_stop_stopwatch');
+            var bt_pause_stopwatch = document.getElementById('bt_pause_stopwatch');
+            var bt_resume_stopwatch = document.getElementById('bt_resume_stopwatch');
+
+            var stopwatch_date = null;
+            var stopwatch_interval = null;
+
+            bt_pause_stopwatch.style.display = 'none';
+            bt_resume_stopwatch.style.display = 'none';
+            bt_stop_stopwatch.style.display = 'none';
+
+            bt_start_stopwatch.onclick = function() {
+                stopwatch_date = new Date();
+                stopwatch_date.setHours(0, 0, 0, 0);
+                stopwatch_interval = setInterval(update_stopwatch, 1000);
+                view_stopwatch.innerHTML = time_str(stopwatch_date);
+                bt_start_stopwatch.style.display = 'none';
+                bt_pause_stopwatch.style.display = 'initial';
+                bt_stop_stopwatch.style.display = 'initial';
+            };
+            bt_stop_stopwatch.onclick = function() {
+                clearInterval(stopwatch_interval);
+                stopwatch_interval = null;
+                stopwatch_date = new Date();
+                stopwatch_date.setHours(0, 0, 0, 0);
+                view_stopwatch.innerHTML = time_str(stopwatch_date);
+                bt_start_stopwatch.style.display = 'initial';
+                bt_resume_stopwatch.style.display = 'none';
+                bt_pause_stopwatch.style.display = 'none';
+                bt_stop_stopwatch.style.display = 'none';
+            };
+            bt_pause_stopwatch.onclick = function() {
+                clearInterval(stopwatch_interval);
+                stopwatch_interval = null;
+                bt_resume_stopwatch.style.display = 'initial';
+                bt_pause_stopwatch.style.display = 'none';
+            };
+            bt_resume_stopwatch.onclick = function() {
+                stopwatch_interval = setInterval(update_stopwatch, 1000);
+                bt_resume_stopwatch.style.display = 'none';
+                bt_pause_stopwatch.style.display = 'initial';
+
+            };
+
+            function update_stopwatch() {
+                stopwatch_date.setSeconds(stopwatch_date.getSeconds()+1);
+                view_stopwatch.innerHTML = time_str(stopwatch_date);
+            }
+
+
+
+            // countdown -----------------------------------------------------------------------
+
+
+            var input_countdown = document.getElementById('input_countdown');
+            var bt_start_countdown = document.getElementById('bt_start_countdown');
+            var view_countdown = document.getElementById('view_countdown');
+
+            var countdown_date = null;
+            var countdown_interval = null;
+
+            bt_start_countdown.onclick = function() {
+                countdown_date = new Date();
+                countdown_date.setHours(0, 5, 0, 0);
+                countdown_interval = setInterval(update_countdown, 1000);
+                view_countdown.innerHTML = time_str(countdown_date);
+            };
+
+            function update_countdown() {
+                countdown_date.setSeconds(countdown_date.getSeconds()-1);
+                view_countdown.innerHTML = time_str(countdown_date);
+                if (countdown_date.getSeconds() === 0
+                    && countdown_date.getMinutes() === 0
+                    && countdown_date.getHours() === 0) {
+                    clearInterval(countdown_interval);
+                    countdown_interval = null;
+                }
+            }
+
+        </script>
+    </body>
+</html>
+

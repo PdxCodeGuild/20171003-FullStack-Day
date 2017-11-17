@@ -1,0 +1,75 @@
+<html>
+    <head>
+    </head>
+    <body>
+        <div id="container">
+        </div>
+        <script>
+            let fields = [
+                {
+                    'name': 'Username',
+                    'pattern':/\w{6,}/,
+                    'warning':'username must be 6 or more characters'
+                },{
+                    'name': 'Password',
+                    'pattern':/\w{6,}/,
+                    'warning':'password must be 6 or more characters'
+                },{
+                    'name': 'Name',
+                    'pattern':/[a-zA-Z]+ [a-zA-Z]+/,
+                    'warning':'enter first and last name'
+                },{
+                    'name': 'Email Address',
+                    'pattern':/\w+@\w+\.\w+/,
+                    'warning':'enter an email address in the correct format'
+                },{
+                    'name': 'Phone Number',
+                    'pattern':/\d{3}-\d{3}-\d{4}/,
+                    'warning':'must be in the format XXX-XXX-XXXX'
+                },{
+                    'name': 'Date of Birth',
+                    'pattern':/\d+\/\d+\/\d+/,
+                    'warning':'must be in the format MM/DD/YYYY'
+                },{
+                    'name': 'Social Security Number',
+                    'pattern':/\d{3}-\d{2}-\d{4}/,
+                    'warning':'must be in the format XXX-XX-XXXX'
+                }
+            ];
+            let container = document.querySelector('#container');
+            for (let i=0; i<fields.length; ++i) {
+                let name = fields[i].name;
+                let pattern = fields[i].pattern;
+                let warning = fields[i].warning;
+
+                let div = document.createElement('div');
+
+                let name_span = document.createElement('span');
+                name_span.innerText = name;
+
+                let warning_span = document.createElement('span');
+                warning_span.innerText = warning;
+                warning_span.style.color = 'red';
+                warning_span.style.display = 'none';
+
+                let input_field = document.createElement('input');
+                input_field.type = 'text';
+                input_field.oninput = function() {
+                    if (pattern.test(this.value)) {
+                        this.style.outline = '1px solid black';
+                        warning_span.style.display = 'none';
+                    } else {
+                        this.style.outline = '1px solid red';
+                        warning_span.style.display = 'inline';
+                    }
+                };
+
+                div.appendChild(name_span);
+                div.appendChild(input_field);
+                div.appendChild(warning_span);
+                container.appendChild(div);
+            }
+
+        </script>
+    </body>
+</html>
