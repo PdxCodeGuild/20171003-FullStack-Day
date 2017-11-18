@@ -32,10 +32,12 @@ The response to an HTTP request will have a **status code** which indicates whet
 | 5XX  | server error |
 
 
-
 ## AJAX
 
-AJAX stands for "asynchronous javascript and XML", and allows you to execute HTTP requests from JavaScript. You can read more about AJAX [here](https://developer.mozilla.org/en-US/docs/AJAX) and [here](https://www.w3schools.com/xml/ajax_intro.asp). Here's how to execute an AJAX request in native JavaScript. Remember status 200 means 'success'.
+AJAX stands for "asynchronous javascript and XML", and allows you to execute HTTP requests from JavaScript. You can read more about AJAX [here](https://developer.mozilla.org/en-US/docs/AJAX) and [here](https://www.w3schools.com/xml/ajax_intro.asp).
+
+
+Here's how to execute an AJAX request in native JavaScript. You can read more about XMLHttpRequest [here](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/Using_XMLHttpRequest). Remember status 200 means 'success'.
 
 ```javascript
 let xhttp = new XMLHttpRequest();
@@ -87,6 +89,9 @@ $.ajax({
     alert("error"); // indicate that an error has occurred
 });
 ```
+If you receive the response "No 'Access-Control-Allow-Origin' header is present on the requested resource", it's because the remote server you're sending to the request from has security controls in place that prevent access from a client. You can read more  [here](https://stackoverflow.com/questions/43871637/no-access-control-allow-origin-header-is-present-on-the-requested-resource-whe).
+
+
 
 ## JSON + XML
 
