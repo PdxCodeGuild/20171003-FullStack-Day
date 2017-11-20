@@ -6,6 +6,6 @@ Now's your chance to pick an API and build a page to view data retrieved from it
 
 - Weather: [openweathermap.org](http://openweathermap.org/api)
 - Number Facts: [numbersapi.com](http://numbersapi.com/#42)
-- Photos: [flickr.com](https://www.flickr.com/services/api/)
+- Photos: [flickr.com](https://www.flickr.com/services/api/) (requires key)
 - Astronomical Data: [api.nasa.gov](https://api.nasa.gov/#live_example)
 - USA Population Data: [datausa.io](https://datausa.io/about/api/)
