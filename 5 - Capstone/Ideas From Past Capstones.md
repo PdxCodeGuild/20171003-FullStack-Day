@@ -11,7 +11,7 @@
 
 ### 20170626 Day Class
 
-- Musilux
+- Musilux: you can upload a midi file, the application will parse it and begin playing the notes (audio) while displaying the notes played on a keyboard.
 
 
 ### 20170724 Night class
