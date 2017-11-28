@@ -1,7 +1,7 @@
 
 # Routes
 
-Routes connect URLs to views. The routes are stored in a **urls.py** file, which can be found in both the project folder and in each of the apps' folders. URLs are matched via **regular expressions**. To more easily express regular expressions, we'll use **raw strings** which ignore escape sequences. You can specify raw strings by placing an 'r' in front of a string literal, e.g. `r'\'` is the same as `'\\'`.
+Routes connect URLs to views. The routes are stored in a **urls.py** file, which can be found in both the project folder and in each of the apps' folders. URLs are matched via **regular expressions**. To more easily express regular expressions, we'll use **raw strings** which ignore escape sequences. You can specify raw strings by placing an 'r' in front of a string literal, e.g. `r'\'` is the same as `'\\'`. You can read more about routes [here](https://docs.djangoproject.com/en/1.11/topics/http/urls/).
 
 
 ```python

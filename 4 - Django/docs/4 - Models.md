@@ -2,7 +2,7 @@
 
 # Models
 
-Models are Python classes that parallel tables in the database. The ORM manages this dual representation, translating statements in Python to operations on the database.
+Models are Python classes that parallel tables in the database. The ORM manages this dual representation, translating statements in Python to operations on the database. You can read more about models [here](https://docs.djangoproject.com/en/1.11/topics/db/models/), and more about the ORM [here](https://docs.djangoproject.com/en/1.11/ref/models/querysets/).
 
 
 ## Class-Table Representation
