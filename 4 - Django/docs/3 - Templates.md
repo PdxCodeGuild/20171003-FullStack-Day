@@ -3,7 +3,7 @@
 
 # Templates
 
-Templates are like blueprints for your HTML pages. They contain plain HTML/CSS/JavaScript, but also additional syntax for generating HTML/CSS/JavaScript using variables from your Python view. You can read more about Templates [here](https://docs.djangoproject.com/en/1.11/topics/templates/3 - Templates.md).
+Templates are like blueprints for your HTML pages. They contain plain HTML/CSS/JavaScript, but also additional syntax for generating HTML/CSS/JavaScript using variables from your Python view. You can read more about Templates [here](https://docs.djangoproject.com/en/1.11/topics/templates/) and [here](https://docs.djangoproject.com/en/1.11/ref/templates/builtins/).
 
 
 ## if
