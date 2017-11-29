@@ -1,0 +1,26 @@
+
+
+<style>
+    body {
+        font-family: Verdana, "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif
+    }
+    ul li:nth-child(odd) {
+        background-color:lavender;
+    }
+</style>
+
+
+<h1>Todo</h1>
+
+<form action="{% url 'todo:savetodo' %}" method="post">
+    {% csrf_token %}
+    <input type="text" name="todo_text"/>
+    <button type="submit">add todo</button>
+</form>
+
+<ul>
+    {% for todo_item in todo_items %}
+    <li>{{ todo_item.id }} - {{ todo_item.todo_text }}</li>
+    {% endfor %}
+</ul>
+
