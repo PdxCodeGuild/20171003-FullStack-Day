@@ -40,6 +40,7 @@ urlpatterns = [
 
 - Add your app (`appname.apps.AppnameConfig`) to the `INSTALLED_APPS` in `settings.py`
 
+
 ## Create Models
 
 - Define your models (Python classes) in the app's `models.py`
@@ -49,8 +50,7 @@ urlpatterns = [
 
 ## Set Up Admin Interface
 
-- Create an admin account `python manage.py createsuperuser`
-- Enter a username, email address, and password
+- Create an admin account with `python manage.py createsuperuser`, and enter a username, email address, and password
 - Add a `def __str__(self):` to your model so the admin interface knows how to show it.
 - Make your app visible in the admin panel by registering your models with our app's `admin.py`
 

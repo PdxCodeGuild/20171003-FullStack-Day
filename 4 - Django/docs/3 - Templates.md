@@ -3,7 +3,7 @@
 
 # Templates
 
-Templates are like blueprints for your HTML pages. They contain plain HTML/CSS/JavaScript, but also additional syntax for generating HTML/CSS/JavaScript using variables from your Python view. You can read more about Templates [here](https://docs.djangoproject.com/en/1.11/topics/templates/) and [here](https://docs.djangoproject.com/en/1.11/ref/templates/builtins/).
+Templates are like blueprints for your HTML pages. They contain plain HTML/CSS/JavaScript, but also additional syntax for generating HTML/CSS/JavaScript using variables from your Python view. You can read more about Templates [here](https://docs.djangoproject.com/en/1.11/topics/templates/) and [here](https://docs.djangoproject.com/en/1.11/ref/templates/builtins/)
 
 
 ## if
@@ -85,4 +85,42 @@ To load static files into a page, create a folder in your app called `static`. I
 
 ## Template Inheritance
 
-todo
+You can have one template 'inherit' from another, meaning the child template's content will be included inside the parent. You can accomplish this by putting a `{% block content %} / {% endblock %}` in the parent and an `{% extends '<app name>/<parent>.html' %}` in the child. This is useful if your header/footer/menus are consistent across multiple pages and you don't want to repeat the HTML.
+
+
+#### base.html
+
+```html
+{% load static %}
+<head>
+    <link rel="stylesheet" type="text/css" href="{% static 'myapp/style.css' %}"/>
+</head>
+<body>
+    <h1>My App</h1>
+    <hr/>
+    {% block content %}
+    {% endblock %}
+    <hr/>
+    (c) myapp inc
+</body>
+```
+
+#### index.html
+
+```html
+{% extends 'myapp/base.html' %}
+
+{% block content %}
+<p>this is the page content for the index page</p>
+{% endblock %}
+```
+
+#### detail.html
+
+````html
+{% extends 'myapp/base.html' %}
+
+{% block content %}
+<p>this is content for the detail page</p>
+{% endblock %}
+````
