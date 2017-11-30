@@ -1,0 +1,79 @@
+
+
+
+
+<input type="text" id="todo_input"/>
+<button id="bt_save_todo">+</button>
+<ul id="todolist">
+</ul>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.1.4/js.cookie.min.js"></script>
+
+
+<script>
+    function http_get(url, success) {
+        let xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState === 4 && this.status === 200) {
+                let data = JSON.parse(xhttp.responseText);
+                success(data);
+            }
+        };
+        xhttp.open("GET", url);
+        xhttp.send();
+    }
+
+    function http_post(url, data, success) {
+        let csrf_token = Cookies.get('csrftoken');
+        let xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState === 4 && this.status === 200) {
+                success(xhttp.responseText);
+            }
+        };
+        xhttp.open("POST", url);
+        xhttp.setRequestHeader("Content-Type", "application/json");
+        xhttp.setRequestHeader('X-CSRFToken', csrf_token);
+        xhttp.send(JSON.stringify(data));
+    }
+</script>
+
+
+<script>
+
+
+    let todo_list = document.querySelector('#todolist');
+    let todo_input = document.querySelector('#todo_input');
+    let bt_save_todo = document.querySelector('#bt_save_todo');
+
+
+    function refresh_list() {
+        http_get("{% url 'todoajax:gettodos' %}", function(data) {
+            todo_list.innerHTML = '';
+            for (let i=0; i<data.todo_items.length; ++i) {
+                let li = document.createElement('li');
+                li.innerText = data.todo_items[i];
+                todo_list.appendChild(li);
+            }
+        });
+    }
+
+    refresh_list();
+
+
+    bt_save_todo.onclick = function() {
+        let todo_text = todo_input.value;
+        let data = {todo_text: todo_text};
+        http_post("{% url 'todoajax:savetodo' %}", data, function(response) {
+            console.log(response);
+
+            //let li = document.createElement('li');
+            //li.innerText = todo_text;
+            //todo_list.appendChild(li);
+            refresh_list();
+        });
+    };
+
+
+
+</script>

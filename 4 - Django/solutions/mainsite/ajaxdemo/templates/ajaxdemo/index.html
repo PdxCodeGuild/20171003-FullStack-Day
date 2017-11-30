@@ -1,0 +1,50 @@
+
+
+<h1>ok</h1>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.1.4/js.cookie.min.js"></script>
+
+
+
+
+<script>
+
+    function http_post(url, data, success) {
+        let csrf_token = Cookies.get('csrftoken');
+        //let csrf_token = '{% csrf_token %}';
+        let xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState === 4 && this.status === 200) {
+                success(xhttp.responseText);
+            }
+        };
+        xhttp.open("POST", url);
+        xhttp.setRequestHeader("Content-Type", "application/json");
+        xhttp.setRequestHeader('X-CSRFToken', csrf_token);
+        xhttp.send(JSON.stringify(data));
+    }
+
+
+    function http_get(url, success) {
+        let xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState === 4 && this.status === 200) {
+                let data = JSON.parse(xhttp.responseText);
+                success(data);
+            }
+        };
+        xhttp.open("GET", url);
+        xhttp.send();
+    }
+
+
+    http_get("{% url 'ajaxdemo:getdata' %}", function(data) {
+        console.log(data);
+    });
+
+    let data = {name:"John Rambo", time:"2pm"};
+    http_post("{% url 'ajaxdemo:postdata' %}", data, function(response) {
+        console.log(response);
+    });
+
+</script>
