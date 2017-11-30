@@ -1,11 +1,19 @@
 
+{% load static %}
 
+<link  rel="stylesheet" type="text/css" href="{% static 'todo/style.css'%}"/>
 <style>
     body {
         font-family: Verdana, "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif
     }
     ul li:nth-child(odd) {
         background-color:lavender;
+    }
+    form {
+        display:inline;
+    }
+    #completed_list li {
+        text-decoration: line-through;
     }
 </style>
 
@@ -20,7 +28,20 @@
 
 <ul>
     {% for todo_item in todo_items %}
-    <li>{{ todo_item.id }} - {{ todo_item.todo_text }}</li>
+    <li>
+        <form action="{% url 'todo:completetodo' %}" method="post">
+            {% csrf_token %}
+            <input type="hidden" value="{{ todo_item.id }}" name="todo_id"/>
+            <button type="submit">✓</button>
+        </form>
+        <span>{{ todo_item.todo_text }}</span>
+    </li>
+    {% endfor %}
+</ul>
+
+<ul id="completed_list">
+    {% for completed_item in completed_items %}
+    <li>{{ completed_item.todo_text }}</li>
     {% endfor %}
 </ul>
 
