@@ -9,4 +9,4 @@ Let's create an application for representing a library. You should have two mode
 
 ## Version 2
 
-Add another model to keep track of who checked out a book and when. When a user checks a book back in, record that too. Add a text input on the 'checkout' page to record the name of who checked out the book.
+Add another model to keep track of who checked out a book and when. When a user checks a book back in, record that too. Add a text input on the 'checkout' page to record the name of who checked out the book. Have a page to show all the checkouts and returns.
