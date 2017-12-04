@@ -22,5 +22,6 @@ urlpatterns = [
     url(r'^$', include('todo.urls')),
     url(r'^ajaxdemo/', include('ajaxdemo.urls')),
     url(r'^todoajax/', include('todoajax.urls')),
-    url(r'^quotes/', include('quotes.urls'))
+    url(r'^quotes/', include('quotes.urls')),
+    url(r'^quotes2/', include('quotes2.urls'))
 ]

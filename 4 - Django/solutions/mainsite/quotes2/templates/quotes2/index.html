@@ -1,0 +1,104 @@
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.1.4/js.cookie.min.js"></script>
+
+
+
+
+
+<h1>Quote Saver v0.2</h1>
+<blockquote id="quotediv"></blockquote>
+
+
+<button id="bt_save_quote">save</button>
+<button id="bt_next_quote">next</button>
+
+<hr/>
+<h3>Saved Quotes</h3>
+<ul>
+    {% for quote in quotes %}
+    <li>{{ quote.body }} - {{ quote.author.name }}</li>
+    {% endfor %}
+</ul>
+
+
+
+
+
+<script>
+    function http_get(url, success) {
+        let xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState === 4 && this.status === 200) {
+                let data = JSON.parse(xhttp.responseText);
+                success(data);
+            }
+        };
+        xhttp.open("GET", url);
+        xhttp.send();
+    }
+
+
+    function http_post(url, data, success) {
+        let csrf_token = Cookies.get('csrftoken');
+        //let csrf_token = '{% csrf_token %}';
+        let xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState === 4 && this.status === 200) {
+                success(xhttp.responseText);
+            }
+        };
+        xhttp.open("POST", url);
+        xhttp.setRequestHeader("Content-Type", "application/json");
+        xhttp.setRequestHeader('X-CSRFToken', csrf_token);
+        xhttp.send(JSON.stringify(data));
+    }
+
+
+    let quote_body = null;
+    let quote_author = null;
+
+    let quotediv = document.querySelector('#quotediv');
+    let input_quote_body = document.querySelector('#input_quote_body');
+    let input_quote_author = document.querySelector('#input_quote_author');
+    let bt_next_quote = document.querySelector('#bt_next_quote');
+
+    let bt_save_quote = document.querySelector('#bt_save_quote');
+
+
+    bt_save_quote.onclick = function() {
+        data = {quote_body:quote_body,
+                quote_author:quote_author};
+        http_post("{% url 'quotes2:savequote' %}", data, function(response) {
+            console.log(response);
+        });
+    };
+
+
+
+
+    function get_quote() {
+        http_get('https://favqs.com/api/qotd', function(data) {
+            //quote_body = data.quote.body;
+            //quote_author = data.quote.author;
+            quote_body = 'Do not go where the path may lead, go instead where there is no path and leave a trail.';
+            quote_author = 'Ralph Waldo Emerson';
+            quotediv.innerText = quote_body + ' - ' + data.quote.author;
+        });
+    }
+
+    bt_next_quote.onclick = function() {
+        get_quote();
+    };
+
+    get_quote();
+
+
+</script>
+
+
+
+
+
+
