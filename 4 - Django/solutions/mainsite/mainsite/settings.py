@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     'todo.apps.TodoConfig',
     'ajaxdemo.apps.AjaxdemoConfig',
     'todoajax.apps.TodoajaxConfig',
+    'quotes.apps.QuotesConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

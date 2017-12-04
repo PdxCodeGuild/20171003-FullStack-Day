@@ -1,0 +1,67 @@
+
+
+<h1>Quote Saver v0.2</h1>
+<blockquote id="quotediv"></blockquote>
+
+
+<form action="{% url 'quotes:savequote' %}" method="POST">
+    {% csrf_token %}
+    <input id="input_quote_body" type="hidden" name="quote_body"/>
+    <input id="input_quote_author" type="hidden" name="quote_author"/>
+    <button type="submit">save quote</button>
+</form>
+<button id="bt_next_quote">next</button>
+
+<hr/>
+<h3>Saved Quotes</h3>
+<ul>
+    {% for quote in quotes %}
+    <li>{{ quote.body }} - {{ quote.author }}</li>
+    {% endfor %}
+</ul>
+
+
+<script>
+    function http_get(url, success) {
+        let xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState === 4 && this.status === 200) {
+                let data = JSON.parse(xhttp.responseText);
+                success(data);
+            }
+        };
+        xhttp.open("GET", url);
+        xhttp.send();
+    }
+
+    let quotediv = document.querySelector('#quotediv');
+    let input_quote_body = document.querySelector('#input_quote_body');
+    let input_quote_author = document.querySelector('#input_quote_author');
+    let bt_next_quote = document.querySelector('#bt_next_quote');
+
+
+    function get_quote() {
+        http_get('https://favqs.com/api/qotd', function(data) {
+            quotediv.innerText = data.quote.body + ' - ' + data.quote.author;
+            input_quote_body.value = data.quote.body;
+            input_quote_author.value = data.quote.author;
+        });
+    }
+
+    bt_next_quote.onclick = function() {
+        get_quote();
+    };
+
+    get_quote();
+
+
+</script>
+
+
+
+
+
+
+
+
+
