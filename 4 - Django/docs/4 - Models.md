@@ -28,9 +28,48 @@ user3 = User(3, 'brian@gmail.com', 'Brian', 'Barber')
 ```
 All models are automatically given an `id` field, which is an int that uniquely idenifies a row.
 
+
+
+
+## Field Types
+
+You can read more about the field types [here](https://docs.djangoproject.com/en/1.11/ref/models/fields/).
+
+- `BooleanField` represents a boolean (true/false) value
+- `IntegerField` represents an integer
+- `FloatField` represents a floating-point number
+- `CharField` represents a string, requires `max_length` parameter indicating the number of characters
+- `TextField` like `CharField` but has unlimited length
+- `DateTimeField` represents a datetime (more [here](https://docs.djangoproject.com/en/1.11/topics/i18n/timezones/))
+- `OneToOneField` represents a [one-to-one relationship](https://docs.djangoproject.com/en/1.11/topics/db/examples/one_to_one/)
+- `ForeignKey` represents a [many-to-one relationship](https://docs.djangoproject.com/en/1.11/topics/db/examples/many_to_one/)
+- `ManyToManyField` represents a [many-to-many relationship](https://docs.djangoproject.com/en/1.11/topics/db/examples/many_to_many/)
+
+### Nullable Fields
+
+Fields can be 'null' or absent. In Python, the attributes of the instances will be `None`. To declare these fields to be 'nullable', you must specify both `null=True` for the database, and `blank=True` for the admin interface.
+
+```Python
+date_completed = models.DateTimeField(null=True, blank=True)
+```
+
+### Default Values
+
+You can specify a default value for a field by adding `default=<value>`. That way, you can leave the value out when creating and saving an instance.
+
+```python
+class Person(models.Model):
+    # ...
+    age = models.IntegerField(default=0)
+
+person = Person(name="mike") # no need to specify age
+person.save()
+```
+
+
 ## Database Relationships
 
-The three types of . The `id` field of a table is called the **primary key** because it uniquely identifies a table. When another table contains a reference to that `id` field, it's called a **foreign key**. In the following example, `city_id` on `Users` is a **foreign key**, `id` on Users and `id` on Cities are **Primary Keys**. This is an example of a **many-to-one relationship**.
+The three types of database relationships: one-to-one, many-to-one, and many-to-many. The `id` field of a table is called the **primary key** because it uniquely identifies a table. When another table contains a reference to that `id` field, it's called a **foreign key**. In the following example, `city_id` on `Users` is a **foreign key**, `id` on Users and `id` on Cities are **Primary Keys**. This is an example of a **many-to-one relationship**.
 
 #### Users
 | id | email_address | first_name | last_name | city_id |
@@ -45,30 +84,44 @@ The three types of . The `id` field of a table is called the **primary key** bec
 | 1 | Portland |
 | 2 | Eugene |
 
+This relationship would be represented in Python as thus:
 
+```python
+from django.db import models
 
-## Field Types
+class City(models.Model):
+    name = models.CharField(max_length=200)
 
-You can read more about the field types [here](https://docs.djangoproject.com/en/1.11/ref/models/fields/4 - Models.md).
-
-
-- `BooleanField` represents a boolean (true/false) value
-- `IntegerField` represents an integer
-- `FloatField` represents a floating-point number
-- `CharField` represents a string, requires `max_length` parameter indicating the number of characters
-- `TextField` like `CharField` but has unlimited length
-- `DateTimeField` represents a datetime
-
-- `ManyToManyField` represents a many-to-many relationship
-- `OneToOneField` represents a one-to-one relationship
-
-## Null Fields
-
-Fields can be 'null' or absent. In Python, the attributes of the instances will be `None`. To declare these fields to be 'nullable', you must specify both `null=True` for the database, and `blank=True` for the admin interface.
-
-```Python
-date_completed = models.DateTimeField(null=True, blank=True)
+class User(models.Model):
+    email_address = models.CharField(max_length=200)
+    first_name = models.CharField(max_length=200)
+    last_name = models.CharField(max_length=200)
+    city = models.ForeignKey(Question, on_delete=models.CASCADE)
 ```
+
+### One-to-One
+
+A one-to-one relationship means that for every row in table A, there will be a single corresponding row in table B. An example might be between [counties and capital cities](https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/CPT-Databases-OnetoOne.svg/460px-CPT-Databases-OnetoOne.svg.png). Any country only has one capital. Any capital only pretains to one country. You can read more about one-to-one relationships [here](https://docs.djangoproject.com/en/1.11/topics/db/examples/one_to_one/).
+
+### Many-to-One
+
+A many-to-one relationship means that for every row in table A, there may be multiple rows in table B connected to it. An example might be between a [mother and her children](https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/CPT-Databases-OnetoMany.svg/460px-CPT-Databases-OnetoMany.svg.png). A mother may have multiple children, but any child only has one mother. You can read more about many-to-one relationships [here](https://docs.djangoproject.com/en/1.11/topics/db/examples/many_to_one/).
+
+
+### Many-to-Many
+
+An example might be between [authors and books](https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/CPT-Databases-ManytoMany.svg/460px-CPT-Databases-ManytoMany.svg.png). One book may have multiple authors. One author may have multiple books. To define such a relationship, you can create a [junction table](https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Databases-ManyToManyWJunction.jpg/800px-Databases-ManyToManyWJunction.jpg) with two many-to-one relationships. Or you can use a `ManyToManyField`
+You can read more about many-to-many relationships [here](https://docs.djangoproject.com/en/1.11/topics/db/examples/many_to_many/).
+
+
+### on_delete
+
+The `on_delete` parameter lets you control what to do with other rows when a connected row is deleted. You can read more about `on_delete` [here](https://docs.djangoproject.com/en/2.0/ref/models/fields/#arguments). The important options are:
+
+- `CASCADE` deleted this row when the other is deleted
+- `PROTECT` throws an exception when the other is deleted, this forces the developer re-assign the relationship when they want to delete a row
+- `SET_NULL` sets the field containing the relationship to null (the field must also be nullable)
+- `SET_DEFAULT` sets the field containing the relationship to its default value (a default must be specified)
 
 
 ## ORM Operations
@@ -128,7 +181,7 @@ completed_items = TodoItem.objects.filter(date_completed__isnull=False)
 
 ### Specify an Order
 
-To specify an order, use `order_by`, which takes any number of strings containing the names of the attributes to sort by.
+To specify an order, use `order_by`, which takes any number of strings containing the names of the attributes to sort by. By default sort is ascending, use a negative symbol `-` to sort in the descending order.
 
 ```python
 todo_items = TodoItem.objects.order_by('-date_entered', '-date_completed')

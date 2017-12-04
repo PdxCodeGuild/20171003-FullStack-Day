@@ -85,7 +85,7 @@ To load static files into a page, create a folder in your app called `static`. I
 
 ## Template Inheritance
 
-You can have one template 'inherit' from another, meaning the child template's content will be included inside the parent. You can accomplish this by putting a `{% block content %} / {% endblock %}` in the parent and an `{% extends '<app name>/<parent>.html' %}` in the child. This is useful if your header/footer/menus are consistent across multiple pages and you don't want to repeat the HTML.
+You can have one template 'inherit' from another, meaning the child template's content will be included inside the parent. You can accomplish this by putting a `{% block content %} / {% endblock %}` in the parent and an `{% extends '<app name>/<parent>.html' %}` in the child. This is useful if your header/footer/menus are consistent across multiple pages and you don't want to repeat the HTML. You can read more about template inheritance [here](https://tutorial.djangogirls.org/en/template_extending/).
 
 
 #### base.html
