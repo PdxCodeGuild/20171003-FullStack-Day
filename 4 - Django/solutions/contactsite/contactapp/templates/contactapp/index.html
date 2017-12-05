@@ -1,0 +1,52 @@
+
+
+<style>
+    table {
+        text-align:left;
+        border-spacing: 0px;
+    }
+    td {
+        padding:4px;
+    }
+    table, th, td {
+        border: 0.5px solid black;
+    }
+</style>
+
+
+<form action="{% url 'contactapp:savecontact'%}" method="post">
+    {% csrf_token %}
+    <input type="text" placeholder="name" name="contact_name" required pattern="[0-9]+"/>
+    <input type="text" placeholder="fruit" name="contact_fruit"/>
+    <input type="text" placeholder="color" name="contact_color"/>
+    <button type="submit">add contact</button>
+</form>
+
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Fruit</th>
+        <th>Color</th>
+    </tr>
+    {% for contact in contacts %}
+    <tr>
+        <td>{{contact.name}}</td>
+        <td>{{contact.fruit}}</td>
+        <td>{{contact.color}}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+<ul>
+    {% for contact in contacts %}
+    <li>{{contact.name}}</li>
+    {% endfor %}
+</ul>
+
+
+
+
+
+
+
+
