@@ -36,6 +36,8 @@ INSTALLED_APPS = [
     'todoajax.apps.TodoajaxConfig',
     'quotes.apps.QuotesConfig',
     'quotes2.apps.Quotes2Config',
+    'accounts.apps.AccountsConfig',
+    'blog.apps.BlogConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -123,3 +125,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
+
+
+LOGIN_URL = '/accounts/login/'

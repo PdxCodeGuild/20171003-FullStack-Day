@@ -1,0 +1,16 @@
+
+<h1>Register</h1>
+
+{% if message %}
+<span style="color:red">{{message}}</span>
+{% endif %}
+
+
+<form action="{% url 'accounts:createuser' %}" method="post" autocomplete="off">
+    {% csrf_token %}
+    <input type="text" placeholder="username" name="username" required value=""/>
+    <input type="text" placeholder="email address" name="email_address" required value=""/>
+    <input type="password" placeholder="password" name="password" required value=""/>
+    <button type="submit">register</button>
+</form>
+

@@ -1,0 +1,9 @@
+<h1>Login</h1>
+
+<form action="{% url 'accounts:loginuser' %}" method="post" autocomplete="off">
+    {% csrf_token %}
+    <input type="text" placeholder="username" name="username" required value=""/>
+    <input type="password" placeholder="password" name="password" required value=""/>
+    <button type="submit">login</button>
+</form>
+
