@@ -22,7 +22,7 @@ Both pages should redirect to the list of blog posts after registering/logging-i
 - BlogPost
     - user: a many-to-one relationship to the User table
     - title: text of the post's title
-    - body: text of the post's body
+    - body: text of the post's body (use TextField rather than CharField)
     - timestamp: when the post was made
 
 
