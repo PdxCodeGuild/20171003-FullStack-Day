@@ -29,9 +29,11 @@
 - Terri Stefan
   - [tntterri615@gmail.com](mailto:tntterri615@gmail.com)
   - https://github.com/tntterri615/Pdx-Code-Guild/tree/master/Python
+  - [capstone proposal](https://github.com/tntterri615/Pdx-Code-Guild/blob/master/capstone_proposal.md)
 - Chloe Elliott
   - [chloe_elliott@me.com](mailto:chloe_elliott@me.com)
   - https://github.com/PDXChloe/PDXcodeguild
+  - [captone proposal](https://github.com/PDXChloe/capstone/blob/master/proposal.md)
 - Brandon Perard
   - [brandon.perard@gmail.com](mailto:brandon.perard@gmail.com)
   - https://github.com/trashpig/pcg
