@@ -9,18 +9,23 @@
 - Zia Dawn
   - [zmareck@gmail.com](mailto:zmareck@gmail.com)
   - https://github.com/ziadawn/codeguild-class
+  - [captone proposal](https://github.com/ziadawn/codeguild-class/blob/master/Capstone/Capstone%20Proposal)
 - Allen Matasy
   - [allen.matasy@gmail.com](mailto:allen.matasy@gmail.com)
   - https://github.com/Spitfire22/PdxCodeGuild
+  - [capstone proposal](https://github.com/Spitfire22/PdxCodeGuild/blob/master/HAuto/capprop.md)
 - David Pennington
   - [unseenoctopus@gmail.com](mailto:unseenoctopus@gmail.com)
   - https://github.com/mootfowl/dp_pdxcodeguild
+  - [captone proposal](https://github.com/mootfowl/jubilant-octo-garbanzo)
 - Marcel Schaeffer
   - [mschaeffer53@gmail.com](mailto:mschaeffer53@gmail.com)
   - https://github.com/mschaeffer53/Marcel_repo
+  - [capstone proposal](https://github.com/mschaeffer53/Marcel_CodeGuildPDX/blob/master/capstone_proposal.md)
 - Cameron Mirza
   - [mail@cmirza.com](mailto:mail@cmirza.com)
   - https://github.com/cmirza/FullStackDay-PdxCodeGuild
+  - [captone proposal](https://github.com/cmirza/FullStackDay-PdxCodeGuild/blob/master/05%20-%20Capstone/capstone_proposal.md)
 - Terri Stefan
   - [tntterri615@gmail.com](mailto:tntterri615@gmail.com)
   - https://github.com/tntterri615/Pdx-Code-Guild/tree/master/Python
@@ -30,9 +35,11 @@
 - Brandon Perard
   - [brandon.perard@gmail.com](mailto:brandon.perard@gmail.com)
   - https://github.com/trashpig/pcg
+  - [capstone proposal](https://github.com/bperard/Music-To-Video/blob/master/Capstone%20Proposal%20-%20FullStack20171003.md)
 - Kyle Douglas
   - [kyle.dgls@gmail.com](mailto:kyle.dgls@gmail.com)
   - https://github.com/kyledgls/portfolio1
+  - [capstone proposal](https://github.com/kyledgls/kyledgls.github.io/blob/master/kyldglscapstone.md)
 
 
 
