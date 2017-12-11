@@ -1,16 +1,10 @@
 # Resources
 
-## Public APIs
-
-- [List](https://github.com/toddmotto/public-apis)
-- [twilio](https://www.twilio.com/docs/api/rest): SMS + MMS messages
-- [flickr](https://www.flickr.com/services/api/): photos
-- [Brickset](https://brickset.com/tools/webservices/v2): Lego sets
-- [Open Weather Map](https://openweathermap.org/api): weather
-
-
-
 ## Front-End
+
+### Icons
+
+- [Font Awesome Icons](http://fontawesome.io/icons/)
 
 ### CSS
 
@@ -52,6 +46,17 @@
 
 - [Phaser](https://phaser.io/)
 - [Babylon.js](http://www.babylonjs.com/)
+
+
+
+## Public APIs
+
+- [List](https://github.com/toddmotto/public-apis)
+- [twilio](https://www.twilio.com/docs/api/rest): SMS + MMS messages
+- [flickr](https://www.flickr.com/services/api/): photos
+- [Brickset](https://brickset.com/tools/webservices/v2): Lego sets
+- [Open Weather Map](https://openweathermap.org/api): weather
+
 
 
 ## Back-End Frameworks
