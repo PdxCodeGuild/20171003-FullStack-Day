@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        #map {
+            height: 400px;
+            width: 100%;
+        }
+        .label {
+            background-color:rgba(255, 255, 255, 0.8)
+        }
+    </style>
+</head>
+<body>
+<h3>My Google Maps Demo</h3>
+<button id="bt_save_markers">save markers</button>
+<div id="map"></div>
+<script>
+
+    let markers = [];
+
+
+    function initMap() {
+        var uluru = {lat: -25.363, lng: 131.044};
+        var map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 4,
+            center: uluru
+        });
+
+        function addMarker(position) {
+            let latitude = position.lat();
+            let longitude = position.lng();
+            markers.push({
+                latitude:latitude,
+                longitude:longitude
+            });
+
+            var marker = new google.maps.Marker({
+                position: position,
+                map: map,
+                label: {
+                    color:'black',
+                    fontSize:'10px',
+                    text:latitude.toFixed(2) + ' ' + longitude.toFixed(2)
+                },
+                animation: google.maps.Animation.DROP
+            });
+        }
+
+        map.addListener('click', function (event) {
+            addMarker(event.latLng);
+        });
+    }
+
+
+    let bt_save_markers = document.querySelector('#bt_save_markers');
+    bt_save_markers.onclick = function() {
+        console.log(markers);
+    }
+
+
+
+
+</script>
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAOasHwEXjUcaIRSZ5nxVhrec-31HxOgNc&callback=initMap"></script>
+</body>
+</html>
+
