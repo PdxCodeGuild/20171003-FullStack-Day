@@ -4,7 +4,7 @@
 
 ## Resources
 
-There are several Google Maps apis, look [here](https://developers.google.com/maps/web/) to find which suits you best. The info below uses the JavaScript API and the directions.
+There are several Google Maps apis, look [here](https://developers.google.com/maps/web/) and [here](https://developers.google.com/maps/documentation/api-picker) to find which suits you best. The info below uses the JavaScript API and the directions.
 
 - [Guides](https://developers.google.com/maps/documentation/javascript/tutorial) and [Samples](https://developers.google.com/maps/documentation/javascript/examples/)
     - [search for places](https://developers.google.com/maps/documentation/javascript/examples/places-searchbox)
