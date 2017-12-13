@@ -73,3 +73,25 @@
     </body>
 </html>
 ```
+
+## Doing AJAX with $http
+
+
+```html
+<div ng-app="myApp" ng-controller="myCtrl"> 
+
+<p>Today's welcome message is:</p>
+<h1>{{myWelcome}}</h1>
+
+</div>
+
+<script>
+var app = angular.module('myApp', []);
+app.controller('myCtrl', function($scope, $http) {
+    $http.get("welcome.htm")
+    .then(function(response) {
+        $scope.myWelcome = response.data;
+    });
+});
+</script>
+```
