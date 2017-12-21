@@ -1,0 +1,87 @@
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.1.4/js.cookie.min.js"></script>
+
+
+
+
+<input id="input_todo" type="text">
+<button id="bt_add_todo">add todo</button>
+
+<ul id="ul_todo_items">
+</ul>
+
+<script>
+
+
+    function http_post(url, data, success) {
+        let csrf_token = Cookies.get('csrftoken');
+        let xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState === 4 && this.status === 200) {
+                success(xhttp.responseText);
+            }
+        };
+        xhttp.open("POST", url);
+        xhttp.setRequestHeader("Content-Type", "application/json");
+        xhttp.setRequestHeader('X-CSRFToken', csrf_token);
+        xhttp.send(JSON.stringify(data));
+    }
+
+
+    function http_get(url, success) {
+        let xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState === 4 && this.status === 200) {
+                let data = JSON.parse(xhttp.responseText);
+                success(data);
+            }
+        };
+        xhttp.open("GET", url);
+        xhttp.send();
+    }
+
+    let ul_todo_items = document.querySelector('#ul_todo_items');
+    let input_todo = document.querySelector('#input_todo');
+    let bt_add_todo = document.querySelector('#bt_add_todo');
+
+
+    function refresh_list() {
+        http_get("{% url 'todoajax:gettodos' %}", function(data) {
+            while (ul_todo_items.firstChild) {
+                ul_todo_items.removeChild(ul_todo_items.firstChild);
+            }
+            for (let i=0; i<data.todo_items.length; ++i) {
+                let li = document.createElement('li');
+                li.innerText = data.todo_items[i];
+                ul_todo_items.appendChild(li);
+            }
+        });
+    }
+
+
+    bt_add_todo.onclick = function() {
+        let todo_text = input_todo.value;
+        let data = {
+            todo_text: todo_text
+        };
+        http_post("{% url 'todoajax:savetodo' %}", data, function(response) {
+            // if (response === 'ok') {
+            //     let li = document.createElement('li');
+            //     li.innerText = todo_text;
+            //     ul_todo_items.appendChild(li);
+            // }
+            refresh_list();
+        });
+    };
+
+    refresh_list();
+
+
+
+
+</script>
+
+
+
